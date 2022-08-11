@@ -6,7 +6,7 @@ const ExperienceSection = () => {
   const [experiences, setExperiences] = useState([]);
   useEffect(() => {
     axios({
-      url: "https://shielded-river-60872.herokuapp.com/api/experiences",
+      url: "https://hiteshpateladmin.herokuapp.com/api/experiences",
       method: "GET",
     }).then((res) => {
       //   console.log(res.data);

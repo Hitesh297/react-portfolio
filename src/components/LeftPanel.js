@@ -8,7 +8,7 @@ export const LeftPanel = () => {
 
   useEffect(() => {
     axios({
-      url: "https://shielded-river-60872.herokuapp.com/api/socialmedia",
+      url: "https://hiteshpateladmin.herokuapp.com/api/socialmedia",
       method: "GET",
     }).then((res) => {
       var responselist = res.data;

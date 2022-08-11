@@ -6,7 +6,7 @@ const ProjectsSection = () => {
   const [projects, setProjects] = useState([]);
   useEffect(() => {
     axios({
-      url: "https://shielded-river-60872.herokuapp.com/api/projects",
+      url: "https://hiteshpateladmin.herokuapp.com/api/projects",
       method: "GET",
     }).then((res) => {
       //   console.log(res.data);

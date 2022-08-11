@@ -8,7 +8,7 @@ const AboutMeSection = () => {
 
   useEffect(() => {
     axios({
-      url: "https://shielded-river-60872.herokuapp.com/api/contents",
+      url: "https://hiteshpateladmin.herokuapp.com/api/contents",
       method: "GET",
     }).then((res) => {
       //   console.log(res.data);
@@ -22,7 +22,7 @@ const AboutMeSection = () => {
     });
 
     axios({
-      url: "https://shielded-river-60872.herokuapp.com/api/qualifications",
+      url: "https://hiteshpateladmin.herokuapp.com/api/qualifications",
       method: "GET",
     }).then((res) => {
       //   console.log(res.data);

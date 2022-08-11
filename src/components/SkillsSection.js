@@ -7,7 +7,7 @@ const SkillsSection = () => {
 
   useEffect(() => {
     axios({
-      url: "https://shielded-river-60872.herokuapp.com/api/skills",
+      url: "https://hiteshpateladmin.herokuapp.com/api/skills",
       method: "GET",
     }).then((res) => {
       //   console.log(res.data);
