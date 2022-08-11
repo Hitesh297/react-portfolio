@@ -51,7 +51,10 @@ const AboutMeSection = () => {
                       {credential.credential}, {credential.yearCompleted}{" "}
                     </h4>
                   </div>
-                  {credential.details}
+                  <div
+                    dangerouslySetInnerHTML={{ __html: credential.details }}
+                  ></div>
+                  {/* {credential.details} */}
                 </li>
               ))}
             </ul>
