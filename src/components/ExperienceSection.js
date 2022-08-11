@@ -84,7 +84,12 @@ const ExperienceSection = () => {
                   " - " +
                   formatedDate(experience.endDate)}
               </p>
-              {experience.responsibilities}
+              <div
+                dangerouslySetInnerHTML={{
+                  __html: experience.responsibilities,
+                }}
+              ></div>
+              {/* {experience.responsibilities} */}
             </div>
           ))}
         </div>

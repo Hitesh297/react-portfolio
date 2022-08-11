@@ -15,7 +15,7 @@ const AboutMeSection = () => {
       var responselist = res.data;
 
       let contentList = responselist
-        .filter((res) => (res.type = "AboutMe"))
+        .filter((res) => res.type === "AboutMe")
         .map((content) => content);
       // console.log(contentList[0]);
       setContent(contentList[0].content);
@@ -39,7 +39,7 @@ const AboutMeSection = () => {
       <h2 className="section-headings">About Me</h2>
       <div className="aboutme-content reveal">
         <div id="aboutme-text">
-          {content}
+          <div dangerouslySetInnerHTML={{ __html: content }}></div>
           <div id="credential-details">
             <h3>Qualifications</h3>
             <ul className="credentials-list">

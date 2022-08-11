@@ -14,7 +14,7 @@ const HeroSection = () => {
       var responselist = res.data;
 
       let contentList = responselist
-        .filter((res) => (res.type = "Hero"))
+        .filter((res) => res.type === "Hero")
         .map((content) => content);
       //   console.log(contentList[0]);
       setContent(contentList[0].content);
@@ -37,7 +37,7 @@ const HeroSection = () => {
           </span>
         </h3>
       </div>
-      <div>{content}</div>
+      <div dangerouslySetInnerHTML={{ __html: content }}></div>
       <div>
         <a
           id="hire-me"
