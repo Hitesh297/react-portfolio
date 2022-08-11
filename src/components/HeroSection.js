@@ -7,7 +7,7 @@ const HeroSection = () => {
 
   useEffect(() => {
     axios({
-      url: "http://shielded-river-60872.herokuapp.com/api/contents",
+      url: "https://shielded-river-60872.herokuapp.com/api/contents",
       method: "GET",
     }).then((res) => {
       //   console.log(res.data);
