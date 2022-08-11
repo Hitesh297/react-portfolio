@@ -1,0 +1,21 @@
+<svg id="logo-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="75" height="90" viewBox="0 0 75 90">
+    <g transform="translate(5,5)">
+        <path d="M0,0 65,0 65,80 0,80 0,-2.5" class="path loader-rectangle"></path>
+    </g>
+    <text x="16" y="67">H</text>
+    <defs>
+        <style type="text/css">@import url('https://fonts.googleapis.com/css2?family=Merriweather&amp;display=swap');</style>
+        <style>
+        #logo-svg text {
+            font-family: 'Merriweather', serif;
+            fill: #64cdff;
+            font-size: 60px;
+        }
+        .loader-rectangle {
+            stroke: #64cdff;
+            stroke-width: 5px;
+            fill: none;
+        }
+    </style>
+    </defs>
+</svg>
