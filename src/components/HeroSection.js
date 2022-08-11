@@ -14,7 +14,7 @@ const HeroSection = () => {
       var responselist = res.data;
 
       let contentList = responselist
-        .filter((type) => (type = "Hero"))
+        .filter((res) => (res.type = "Hero"))
         .map((content) => content);
       //   console.log(contentList[0]);
       setContent(contentList[0].content);
