@@ -27,11 +27,12 @@ const HeroSection = () => {
         <h1>Hi, my name is</h1>
       </div>
       <div>
-        <h2>Hitesh Patel.</h2>
+        <h2>
+          Hitesh Patel. <span id="iama">I'm a </span>
+        </h2>
       </div>
       <div>
         <h3>
-          I'm a{" "}
           <span id="role-title" className="">
             Web Developer
           </span>
