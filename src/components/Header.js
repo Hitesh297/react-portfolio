@@ -48,7 +48,7 @@ class Header extends React.Component {
               </li>
             </ul>
             <div className="resume-link">
-              <a href="/">Resume</a>
+              <a href="Resume.pdf">Resume</a>
             </div>
           </div>
           <button id="hamburger">
@@ -95,7 +95,7 @@ class Header extends React.Component {
                   <a href="#contact">Contact</a>
                 </li>
               </ol>
-              <a href="/" className="resume-link">
+              <a href="Resume.pdf" className="resume-link">
                 Resume
               </a>
             </nav>
