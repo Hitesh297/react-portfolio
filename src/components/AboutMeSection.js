@@ -1,10 +1,23 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import axiosRetry from "axios-retry";
 
 const AboutMeSection = () => {
   const [content, setContent] = useState([]);
   const [credentials, setCredentials] = useState([]);
+
+  axiosRetry(axios, {
+    retries: 3, // number of retries
+    retryDelay: (retryCount) => {
+      console.log(`retry attempt: ${retryCount}`, new Date());
+      return retryCount * 2000; // time interval between retries
+    },
+    retryCondition: (error) => {
+      // if retry condition is not specified, by default idempotent requests are retried
+      return error.response.status === 503;
+    },
+  });
 
   useEffect(() => {
     axios({
