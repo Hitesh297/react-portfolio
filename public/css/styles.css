@@ -115,9 +115,9 @@ html {
     display: block;
     margin: 0 auto;
     fill: none;
-    animation: goinitial 2s 3.5s;
-    -webkit-animation: goinitial 2s 3.5s;
-    -moz-animation: goinitial 2s 3.5s;
+    animation: goinitial 1s 3.5s;
+    -webkit-animation: goinitial 1s 3.5s;
+    -moz-animation: goinitial 1s 3.5s;
     animation-fill-mode: forwards;
     -webkit-animation-fill-mode: forwards;
     -moz-animation-fill-mode: forwards;
