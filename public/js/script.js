@@ -9,7 +9,7 @@ window.onload = function() {
     element.onclick = toggleMenu;
   });
 
-  hamburger.onclick = toggleMenu;
+  // hamburger.onclick = toggleMenu;
 
   function toggleMenu() {
     rightmenu.classList.toggle("open");
