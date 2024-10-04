@@ -1,5 +1,6 @@
 import React from "react";
 import Hamburger from "./Hamburger";
+import DarkModeSwitch from "./DarkModeSwitch/DarkModeSwitch";
 
 class Header extends React.Component {
   render() {
@@ -47,7 +48,11 @@ class Header extends React.Component {
               <li>
                 <a href="#contact">Contact</a>
               </li>
+              <li>
+                <DarkModeSwitch />
+              </li>
             </ul>
+            
             <div className="resume-link">
               <a href="Resume.pdf">Resume</a>
             </div>
@@ -83,4 +88,5 @@ class Header extends React.Component {
     );
   }
 }
+
 export default Header;
