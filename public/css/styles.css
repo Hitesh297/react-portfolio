@@ -7,11 +7,26 @@
 }
 
 :root {
-    --green: #05fdd8;
+    --secondary-colour: #05fdd8;
     --background: #151721;
     --dark-slate: #495670;
     --project-background: #222538;
+    --primary-colour: #ccd6f6;
+    --text-colour: #8892b0;
+    --switch-background: #ccc;
+    --switch-thumb-color: #ffffff;
 }
+
+[data-theme="light"] {
+    --secondary-colour: #000000;
+    --background: #f4f4f6;
+    --dark-slate: #495670;
+    --project-background: #e6e6e9;
+    --primary-colour: #9999a1;
+    --text-colour: #66666e;
+    --switch-background: #ccc;
+    --switch-thumb-color: #ffffff;
+}   
 
 html {
     box-sizing: border-box;
@@ -47,7 +62,7 @@ html {
 }
 
 .loader-rectangle {
-    stroke: var(--green);
+    stroke: var(--secondary-colour);
     stroke-width: 5px;
     fill: none;
 }
@@ -85,7 +100,7 @@ html {
 
 #logo-svg text {
     font-family: 'Merriweather', serif;
-    fill: var(--green);
+    fill: var(--secondary-colour);
     animation: fadein 0.5s linear 2.5s;
     -webkit-animation: fadein 0.5s linear 2.5s;
     -moz-animation: fadein 0.5s linear 2.5s;
@@ -139,7 +154,7 @@ html {
 body {
     margin: 0;
     background-color: var(--background);
-    color: #8892b0;
+    color: var(--text-colour);
     font-family: 'Inter', sans-serif;
     counter-reset: item section;
     height: 100%;
@@ -155,7 +170,7 @@ h4,
 h5,
 h6 {
     font-weight: 600;
-    color: #ccd6f6;
+    color: var(--primary-colour);
     line-height: 1.1;
 }
 
@@ -188,6 +203,7 @@ p {
 ul {
     list-style-type: none;
     display: flex;
+    align-items: center;
 }
 
 img {
@@ -211,7 +227,7 @@ ul li {
 }
 
 #hamburger svg {
-    fill: var(--green);
+    fill: var(--secondary-colour);
 }
 
 #right-menu {
@@ -269,14 +285,14 @@ ul li {
     content: "0" counter(item) ".";
     display: block;
     margin-bottom: 5px;
-    color: var(--green);
+    color: var(--secondary-colour);
     font-size: 14px;
 }
 
 #right-menu .resume-link {
-    color: var(--green);
+    color: var(--secondary-colour);
     background-color: transparent;
-    border: 1px solid var(--green);
+    border: 1px solid var(--secondary-colour);
     border-radius: 4px;
     font-size: 14px;
     font-family: 'Roboto Mono', monospace;
@@ -296,7 +312,7 @@ ul li {
     align-items: center;
     width: 100%;
     flex-direction: column;
-    color: #ccd6f6;
+    color: var(--primary-colour);
     font-family: 'Roboto Mono', monospace;
     text-align: center;
 }
@@ -313,7 +329,7 @@ ul li {
 }
 
 .nav-links li a:hover {
-    color: var(--green);
+    color: var(--secondary-colour);
 }
 
 .nav-links li a::before {
@@ -321,7 +337,7 @@ ul li {
     content: "0" counter(item) ".";
     /* content: "->"; */
     margin-right: 5px;
-    color: var(--green);
+    color: var(--secondary-colour);
     font-size: 12px;
     font-family: ocr;
 }
@@ -331,16 +347,16 @@ ul li {
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    color: #ccd6f6;
+    color: var(--primary-colour);
 }
 
 .resume-link a {
     display: flex;
-    border: 1px solid var(--green);
+    border: 1px solid var(--secondary-colour);
     border-radius: 4px;
     margin-left: 15px;
     text-decoration: none;
-    color: var(--green);
+    color: var(--secondary-colour);
     padding: 0.60rem 1rem;
     font-family: 'Roboto Mono', monospace;
     font-size: 13px;
@@ -355,13 +371,13 @@ ul li {
 }
 
 #logo {
-    border: 2px solid var(--green);
+    border: 2px solid var(--secondary-colour);
     padding: 1px 3px;
 }
 
 #logo #letter-H {
     font-family: 'Merriweather', serif;
-    color: var(--green);
+    color: var(--secondary-colour);
     font-size: xx-large;
     display: inline;
 }
@@ -369,7 +385,7 @@ ul li {
 #logo-text p {
     margin: 0;
     padding-left: 5px;
-    color: var(--green);
+    color: var(--secondary-colour);
 }
 
 /*style for left side vertical bar*/
@@ -390,7 +406,7 @@ ul li {
 }
 
 #left-line line {
-    stroke: #a8b2d1;
+    stroke: var(--text-colour);
     stroke-width: 2;
 }
 
@@ -405,20 +421,20 @@ ul li {
 }
 
 #right-line line {
-    stroke: #a8b2d1;
+    stroke: var(--text-colour);
     stroke-width: 2;
 }
 
 #right a {
     writing-mode: vertical-rl;
     text-decoration: none;
-    color: #a8b2d1;
+    color: var(--text-colour);
     font-family: 'Roboto Mono', monospace;
     letter-spacing: 0.1em;
 }
 
 #right a:hover {
-    color: var(--green);
+    color: var(--secondary-colour);
 }
 
 main {
@@ -445,14 +461,14 @@ main {
 
 #hero-section h1 {
     margin: 0px 0px 30px 4px;
-    color: var(--green);
+    color: var(--secondary-colour);
     font-family: 'Roboto Mono', monospace;
     font-size: 1em;
     font-weight: 400;
 }
 
 #hero-section h2 {
-    color: #ccd6f6;
+    color: var(--primary-colour);
     line-height: 1.1;
     font-size: clamp(40px, 8vw, 80px);
     margin: 0px;
@@ -460,7 +476,7 @@ main {
 
 #hero-section h3 {
     margin: 10px 0 0 0;
-    color: #8892b0;
+    color: var(--text-colour);
     line-height: 0.9;
     font-size: clamp(40px, 8vw, 75px);
     display: inline;
@@ -468,12 +484,12 @@ main {
 
 #iama {
     font-size: clamp(9px, 8vw, 38px);
-    color: var(--green);
+    color: var(--secondary-colour);
     font-family: 'ocr';
 }
 
 #role-title {
-    color: var(--green);
+    color: var(--secondary-colour);
     font-family: ocr;
 }
 
@@ -488,8 +504,8 @@ a {
 
 
 #hero-section #hire-me {
-    color: var(--green);
-    border: 1px solid var(--green);
+    color: var(--secondary-colour);
+    border: 1px solid var(--secondary-colour);
     border-radius: 4px;
     padding: 1em 1em;
     font-size: 14px;
@@ -541,7 +557,7 @@ section {
     content: "0" counter(section) ".";
     /*display sequence number beside heading*/
     margin-right: 10px;
-    color: var(--green);
+    color: var(--secondary-colour);
     font-family: ocr, monospace;
     font-weight: 400;
 }
@@ -568,14 +584,14 @@ section {
 }
 
 #aboutme-img-container {
-    background-color: var(--green);
+    background-color: var(--secondary-colour);
     border-radius: 5px;
     height: fit-content;
 }
 
 #aboutme-img-container img {
     mix-blend-mode: luminosity;
-    border: 1px solid var(--green);
+    border: 1px solid var(--secondary-colour);
     transition: all 0.5s ease;
     display: block;
     border-radius: 5px;
@@ -645,7 +661,7 @@ section {
 }
 
 .skills-item i:hover {
-    color: var(--green);
+    color: var(--secondary-colour);
 }
 
 .skills-item h3 {
@@ -764,7 +780,7 @@ section {
 
 .project-head {
     margin: 10px 0px;
-    color: var(--green);
+    color: var(--secondary-colour);
     font-family: 'Roboto Mono', monospace;
     font-size: 13px;
     font-weight: 400;
@@ -773,7 +789,7 @@ section {
 .project-title {
     font-size: 1.4rem;
     margin: 0 0 20px 0;
-    color: #ccd6f6;
+    color: var(--primary-colour);
 }
 
 .project-tech-list {
@@ -787,7 +803,7 @@ section {
 }
 
 .project-tech-list li {
-    color: #a8b2d1;
+    color: var(--text-colour);
     font-family: 'Roboto Mono', monospace;
     font-size: 0.9rem;
     margin: 0;
@@ -800,29 +816,29 @@ section {
 }
 
 .project-links a {
-    color: #ccd6f6;
+    color: var(--primary-colour);
     font-size: 1.4rem;
 }
 
 .project-links a:hover {
-    color: var(--green);
+    color: var(--secondary-colour);
 }
 
 #left-list .social {
-    color: #8892b0;
+    color: var(--text-colour);
     transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
     font-size: 23px;
 }
 
 #left-list .social:hover {
-    color: var(--green);
+    color: var(--secondary-colour);
     transform: translateY(-10%);
 }
 
 
 .resume-link a:hover,
 #hire-me:hover {
-    background-color: #233554;
+    background-color: rgb(from var(--text-colour) h s calc(l + 5%))
 }
 
 #company-list {
@@ -836,7 +852,7 @@ section {
     height: 42px;
     padding: 0 20px 2px 20px;
     background-color: transparent;
-    color: #8892b0;
+    color: var(--text-colour);
     font-family: 'Roboto Mono', monospace;
     font-size: 13px;
     text-align: left;
@@ -852,7 +868,7 @@ section {
     left: 0;
     width: 2px;
     height: 42px;
-    background: var(--green);
+    background: var(--secondary-colour);
     transition: transform 0.25s cubic-bezier(0.645, 0.045, 0.355, 1) 0.1s;
 }
 
@@ -860,7 +876,7 @@ section {
     content: "»";
     position: absolute;
     left: 0px;
-    color: var(--green);
+    color: var(--secondary-colour);
 }
 
 #role-description {
@@ -907,7 +923,7 @@ section {
 
 .form-control {
     width: 100%;
-    color: var(--green);
+    color: var(--secondary-colour);
     letter-spacing: 1px;
     border: none;
     border-radius: 4px;
@@ -920,20 +936,20 @@ section {
 
 .form-control:focus {
     outline: none;
-    border: 1px solid var(--green);
-    box-shadow: 0 0 5px var(--green);
+    border: 1px solid var(--secondary-colour);
+    box-shadow: 0 0 5px var(--secondary-colour);
 
 }
 
 .form-control::placeholder {
-    color: #8892B0;
+    color: var(--text-colour);
 }
 
 #submit-button {
-    border: 1px solid var(--green);
+    border: 1px solid var(--secondary-colour);
     border-radius: 4px;
     text-decoration: none;
-    color: var(--green);
+    color: var(--secondary-colour);
     padding: 0.6rem 1rem;
     font-family: 'Roboto Mono', monospace;
     font-size: 1rem;
@@ -963,7 +979,7 @@ section {
 }
 
 .active {
-    color: var(--green);
+    color: var(--secondary-colour);
 }
 
 .reveal {
@@ -995,11 +1011,13 @@ footer {
 }
 
 #footer-content {
-    color: #a8b2d1;
+    color: var(--text-colour);
     font-family: 'Roboto Mono', monospace;
     font-size: 12px;
     line-height: 1;
 }
+
+
 
 /*styles for smaller devices*/
 @media screen and (max-width:822px) {
