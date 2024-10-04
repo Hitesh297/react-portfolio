@@ -77,6 +77,9 @@ class Header extends React.Component {
                 <li>
                   <a href="#contact">Contact</a>
                 </li>
+                <li>
+                <DarkModeSwitch />
+              </li>
               </ol>
               <a href="Resume.pdf" className="resume-link">
                 Resume
