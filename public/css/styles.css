@@ -18,12 +18,12 @@
 }
 
 [data-theme="light"] {
-    --secondary-colour: #000000;
-    --background: #f4f4f6;
+    --secondary-colour: #202935;
+    --background: #ffffff;
     --dark-slate: #495670;
     --project-background: #e6e6e9;
-    --primary-colour: #9999a1;
-    --text-colour: #66666e;
+    --primary-colour: #22577a;
+    --text-colour: #77858f;
     --switch-background: #ccc;
     --switch-thumb-color: #ffffff;
 }   
@@ -837,8 +837,10 @@ section {
 
 
 .resume-link a:hover,
-#hire-me:hover {
-    background-color: rgb(from var(--text-colour) h s calc(l + 5%))
+.hero-links a:hover {
+    /* background-color: rgb(from var(--text-colour) h s calc(l + 5%)); */
+    color: var(--background) !important;
+    background-color: var(--secondary-colour);
 }
 
 #company-list {
@@ -859,7 +861,7 @@ section {
     border: 0;
     cursor: pointer;
     width: 100%;
-    border-left: 2px solid #233554;
+    border-left: 2px solid var(--text-colour);
 }
 
 #company-selector {
@@ -1035,12 +1037,12 @@ footer {
 
     .project-text {
         max-width: 100%;
-        background-color: #334561;
         padding: 10px;
         position: relative;
         border-radius: 5px;
         /* box-shadow: 0 10px 30px 5px rgba(2, 12, 27, 0.7); */
         box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.7);
+
     }
 
 
