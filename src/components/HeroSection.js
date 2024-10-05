@@ -52,7 +52,7 @@ const HeroSection = () => {
         </h3>
       </div>
       <div dangerouslySetInnerHTML={{ __html: content }}></div>
-      <div>
+      <div className="hero-links">
         <a
           id="hire-me"
           href="https://www.linkedin.com/in/hitesh-patel-dev/"
