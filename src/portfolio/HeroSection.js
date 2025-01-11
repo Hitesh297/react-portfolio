@@ -2,8 +2,10 @@ import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import axiosRetry from "axios-retry";
+import Typed from "typed.js";
 
 const HeroSection = () => {
+  const el = React.useRef(null);
   const [content, setContent] = useState([]);
 
   axiosRetry(axios, {
@@ -34,6 +36,21 @@ const HeroSection = () => {
     });
   }, [setContent]);
 
+  React.useEffect(() => {
+    const typed = new Typed(el.current, {
+      strings: ["Software Engineer", "Full Stack Developer", "Web Developer"],
+      typeSpeed: 50,
+      backSpeed: 20,
+      backDelay: 2000,
+      loop: true,
+    });
+
+    return () => {
+      // Destroy Typed instance during cleanup to stop animation
+      typed.destroy();
+    };
+  }, []);
+
   return (
     <section id="hero-section">
       <div>
@@ -46,7 +63,7 @@ const HeroSection = () => {
       </div>
       <div>
         <h3>
-          <span id="role-title" className="">
+          <span ref={el} id="role-title" className="">
             Web Developer
           </span>
         </h3>
