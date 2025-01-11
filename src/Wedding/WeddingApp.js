@@ -21,7 +21,14 @@ function Header() {
       {isLoading && <img src="/images/0F9A1035.jpg" alt="Video Placeholder" />}
 
       <div className="video-container">
-        <video controls autoPlay loop muted ref={videoRef}>
+        <video
+          controls
+          autoPlay
+          loop
+          muted
+          ref={videoRef}
+          poster="/images/0F9A1035.jpg"
+        >
           <source src="/videos/test.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
