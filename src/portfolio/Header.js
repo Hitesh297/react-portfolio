@@ -1,6 +1,6 @@
 import React from "react";
 import Hamburger from "./Hamburger";
-import DarkModeSwitch from "./DarkModeSwitch/DarkModeSwitch";
+import DarkModeSwitch from "../components/DarkModeSwitch/DarkModeSwitch";
 
 class Header extends React.Component {
   render() {
