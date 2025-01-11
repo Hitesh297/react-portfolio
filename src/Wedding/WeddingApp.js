@@ -9,6 +9,17 @@ import ScrollAnimation from "./components/ScrollAnimation";
 
 const Header = () => (
   <header className="wedding-header">
+    {/* <video className="video-container" controls>
+      <source src="/videos/test.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video> */}
+    <div className="video-container">
+      <video controls autoPlay loop muted>
+        <source src="/videos/test.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
     <div className="flex-item-first"></div>
     <div className="wedding-header-content">
       <h1 className="wedding-names" data-aos="fade-up">
@@ -94,27 +105,27 @@ const VenueSection = () => (
   </section>
 );
 
-const imgarray = [
-  "https://drive.google.com/u/0/drive-viewer/AKGpihb5Fc86gQYe5EitBPKAL6lFUefheMfTjyGXUVRGLLYE7cD1uwD3MRvSYLiWpG8c_X-ccEdkz0QAvM5ifz-K0q-dbEnQHrm2VDU=s1600-rw-v1",
-  "https://lh3.googleusercontent.com/pw/AP1GczOwftfOazIYw9p4ruHvxrm2Nh5_4EiVNKIHOHsb1PPHTbiwq42ilCay-nbqL4Z4zn95eGnwzmoasRBoEdj0HhNOLmr31MYeYD_1JUfbTlW1mX2b9owg=w2400",
-];
-const Gallery = () => (
-  <section className="section">
-    <h2 className="section-title">Our Story</h2>
-    <div className="gallery">
-      {imgarray.map((url, idx) => (
-        <img
-          key={idx}
-          src={url}
-          alt={`Couple photo ${idx + 1}`}
-          className="gallery-img"
-          data-aos="fade-up"
-          data-aos-delay={`${idx * 100}`}
-        />
-      ))}
-    </div>
-  </section>
-);
+// const imgarray = [
+//   "https://drive.google.com/u/0/drive-viewer/AKGpihb5Fc86gQYe5EitBPKAL6lFUefheMfTjyGXUVRGLLYE7cD1uwD3MRvSYLiWpG8c_X-ccEdkz0QAvM5ifz-K0q-dbEnQHrm2VDU=s1600-rw-v1",
+//   "https://lh3.googleusercontent.com/pw/AP1GczOwftfOazIYw9p4ruHvxrm2Nh5_4EiVNKIHOHsb1PPHTbiwq42ilCay-nbqL4Z4zn95eGnwzmoasRBoEdj0HhNOLmr31MYeYD_1JUfbTlW1mX2b9owg=w2400",
+// ];
+// const Gallery = () => (
+//   <section className="section">
+//     <h2 className="section-title">Our Story</h2>
+//     <div className="gallery">
+//       {imgarray.map((url, idx) => (
+//         <img
+//           key={idx}
+//           src={url}
+//           alt={`Couple photo ${idx + 1}`}
+//           className="gallery-img"
+//           data-aos="fade-up"
+//           data-aos-delay={`${idx * 100}`}
+//         />
+//       ))}
+//     </div>
+//   </section>
+// );
 
 const WeddingApp = () => {
   React.useEffect(() => {
