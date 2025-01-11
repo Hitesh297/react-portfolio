@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 //import './App.css';
 import AOS from "aos";
 //import 'aos/dist/aos.css';
@@ -7,33 +7,41 @@ import GooglePhotoGallery from "./components/GooglePhotoGallery";
 import GoogleMap from "./components/GoogleMap";
 import ScrollAnimation from "./components/ScrollAnimation";
 
-const Header = () => (
-  <header className="wedding-header">
-    {/* <video className="video-container" controls>
-      <source src="/videos/test.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video> */}
-    <div className="video-container">
-      <video controls autoPlay loop muted>
-        <source src="/videos/test.mp4" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-    </div>
+function Header() {
+  const [isLoading, setIsLoading] = useState(true);
+  const videoRef = useRef(null);
 
-    <div className="flex-item-first"></div>
-    <div className="wedding-header-content">
-      <h1 className="wedding-names" data-aos="fade-up">
-        Hitesh & Shikha
-      </h1>
-      <p className="wedding-date" data-aos="fade-up" data-aos-delay="200">
-        January 26, 2025
-      </p>
-      <p data-aos="fade-up" data-aos-delay="400">
-        Request the pleasure of your company to celebrate their wedding
-      </p>
-    </div>
-  </header>
-);
+  useEffect(() => {
+    const video = videoRef.current;
+    video.addEventListener("canplay", () => setIsLoading(false));
+  }, []);
+
+  return (
+    <header className="wedding-header">
+      {isLoading && <img src="/images/0F9A1035.jpg" alt="Video Placeholder" />}
+
+      <div className="video-container">
+        <video controls autoPlay loop muted ref={videoRef}>
+          <source src="/videos/test.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div className="flex-item-first"></div>
+      <div className="wedding-header-content">
+        <h1 className="wedding-names" data-aos="fade-up">
+          Hitesh & Shikha
+        </h1>
+        <p className="wedding-date" data-aos="fade-up" data-aos-delay="200">
+          January 26, 2025
+        </p>
+        <p data-aos="fade-up" data-aos-delay="400">
+          Request the pleasure of your company to celebrate their wedding
+        </p>
+      </div>
+    </header>
+  );
+}
 
 const Event = ({ title, time, description, animation }) => (
   <div className="wedding-event" data-aos={animation}>
