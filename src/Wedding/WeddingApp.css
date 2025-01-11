@@ -174,3 +174,14 @@
         padding: 3rem 1rem;
     }
 }
+
+/* Center the item on smaller screens */
+@media (max-width: 768px) {
+    .wedding-header {
+      justify-content: center; /* Center the item */
+      background-position: 10% 90%;
+    }
+    .flex-item-first {
+        display: none;
+      }
+  }

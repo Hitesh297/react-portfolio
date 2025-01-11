@@ -8,7 +8,7 @@ import GoogleMap from "./components/GoogleMap";
 
 const Header = () => (
   <header className="wedding-header">
-    <div></div>
+    <div className="flex-item-first"></div>
     <div className="wedding-header-content">
       <h1 className="wedding-names" data-aos="fade-up">
         Hitesh & Shikha
