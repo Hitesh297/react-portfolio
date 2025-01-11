@@ -179,7 +179,7 @@
 @media (max-width: 768px) {
     .wedding-header {
       justify-content: center; /* Center the item */
-      background-position: 10% 90%;
+      background-position: 18% 90%;
     }
     .flex-item-first {
         display: none;
