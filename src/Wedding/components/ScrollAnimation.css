@@ -1,0 +1,35 @@
+/* src/components/ScrollAnimation/ScrollAnimation.css */
+.animation-container {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+  
+  .bride-image,
+  .groom-image {
+    width: 300px;
+    height: 400px;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    object-fit: contain;
+    transition: transform 0.1s linear;
+  }
+  
+  .bride-image {
+    left: 0;
+  }
+  
+  .groom-image {
+    right: 0;
+  }
+
+  @media (max-width: 1500px) {
+    .animation-container {
+        display: none;
+    }
+
+}

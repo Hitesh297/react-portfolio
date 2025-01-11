@@ -5,6 +5,7 @@ import AOS from "aos";
 import "./WeddingApp.css";
 import GooglePhotoGallery from "./components/GooglePhotoGallery";
 import GoogleMap from "./components/GoogleMap";
+import ScrollAnimation from "./components/ScrollAnimation";
 
 const Header = () => (
   <header className="wedding-header">
@@ -129,7 +130,10 @@ const WeddingApp = () => {
     <div>
       <Header />
       <EventsSection />
-
+      <ScrollAnimation
+        brideImage="images/bride.png"
+        groomImage="images/groom.png"
+      />
       {/* <Gallery /> */}
       <GooglePhotoGallery />
       <VenueSection />
