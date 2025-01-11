@@ -49,24 +49,7 @@ window.onload = function() {
     }
   };
 
-  // show tab selector movement in experience section
-  // const tabs = document.getElementsByClassName("tabs");
-  // console.log(tabs.length);
-  // for (var i = 0; i < tabs.length; i++) {
-  //   // if (i == 0) {
-  //   //   tabs[i].classList.add("active");
-  //   // }
-  //   tabs[i].addEventListener("click", (e) => handleClick(e));
-  // }
 
-  // const roleDescriptions = document
-  //   .getElementsByClassName("content__section")[0]
-  //   .classList.add("visible");
-  // console.log("check error");
-  // console.log(roleDescriptions[0]);
-  // roleDescriptions[0].classList.add('visible');
-
-  // load the typing effect after 6 seconds
   window.setTimeout(function() {
     var roletitle = document.getElementById("role-title");
     var options = {
@@ -82,29 +65,4 @@ window.onload = function() {
     var typed = new Typed(".auto-type", options);
   }, 6000);
 
-  // handle form submit
-  // $("#contact-form").bind("submit", function (e) {
-  //   e.preventDefault();
-  //   var name = $("#name").val();
-  //   var email = $("#email").val();
-  //   var message = $("#message").val();
-
-  //   console.log(name, email, message);
-
-  //   $.ajax({
-  //     url: "send_email.php",
-  //     type: "POST",
-  //     data: {
-  //       name: name,
-  //       email: email,
-  //       message: message,
-  //     },
-  //     success: function (msg) {
-  //       // var message = document.getElementById('message-alert');
-  //       // message.innerHTML = 'Message Sent!';
-  //       $("#contact-form")[0].reset();
-  //       alert("Message Sent!");
-  //     },
-  //   });
-  // });
 };

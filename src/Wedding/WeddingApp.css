@@ -1,0 +1,176 @@
+@font-face {
+    font-family: Sail-Regular;
+    src: url("../../public/fonts/LeagueScriptNumberOne-webfont.ttf");
+}
+
+@keyframes mandalaRotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes wedding-fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+/* body {
+    font-family: 'Arial', sans-serif;
+    background: #FFF5E6;
+    color: var(--text-color);
+    line-height: 1.6;
+} */
+
+.wedding-header {
+    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../../public/images/0F9A1035.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    gap: 35%;
+}
+
+/* .header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 0C22.4 0 0 22.4 0 50s22.4 50 50 50 50-22.4 50-50S77.6 0 50 0zm0 90C27.9 90 10 72.1 10 50S27.9 10 50 10s40 17.9 40 40-17.9 40-40 40z' fill='rgba(255,255,255,0.1)'/%3E%3C/svg%3E");
+    background-size: 100px 100px;
+    opacity: 0.3;
+    animation: mandalaRotate 60s linear infinite;
+} */
+
+.wedding-header-content {
+    position: relative;
+    z-index: 1;
+    animation: wedding-fadeIn 2s ease-out;
+}
+
+.wedding-names {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    color: var(--primary-gold);
+    font-family: 'Sail-Regular';
+}
+
+.wedding-date {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #fff;
+}
+
+.wedding-event-section {
+    padding: 5rem 2rem;
+    text-align: center;
+    position: relative;
+}
+
+.wedding-section-title {
+    font-size: 2.5rem;
+    color: var(--deep-red);
+    margin-bottom: 2rem;
+}
+
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.wedding-event {
+    background: white;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    position: relative;
+}
+
+.wedding-event::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-gold);
+    border-radius: 50%;
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.wedding-event h3 {
+    color: var(--deep-red);
+    margin-bottom: 1rem;
+}
+
+.wedding-venue {
+    background: var(--deep-red);
+    color: white;
+    padding: 5rem 2rem;
+    margin-top: 5rem;
+    /* margin: 5rem 0 0 0; */
+}
+
+.rsvp-form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    padding: 2rem;
+}
+
+.gallery-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}
+
+.test {
+    width:100%; 
+    height:800px; 
+    display:none;
+}
+
+@media (max-width: 768px) {
+    .wedding-names {
+        font-size: 2.5rem;
+    }
+
+    .wedding-date {
+        font-size: 1.5rem;
+    }
+
+    .wedding-event-section {
+        padding: 3rem 1rem;
+    }
+}

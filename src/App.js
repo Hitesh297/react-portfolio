@@ -1,17 +1,19 @@
-import Header from "./components/Header";
-import LeftPanel from "./components/LeftPanel";
-import Main from "./components/Main";
-import RightPanel from "./components/RightPanel";
 import React from "react";
+import PortfolioApp from "./portfolio/PortfolioApp";
+import WeddingApp from './Wedding/WeddingApp';
+import BlogApp from "./blog/BlogApp";
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <LeftPanel />
-      <RightPanel />
-      <Main />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<PortfolioApp />} />
+        <Route path="/blog" element={<BlogApp />} />
+        <Route path="/wedding" element={<WeddingApp />} />
+      </Routes>
+    </Router>
+   
   );
 }
 

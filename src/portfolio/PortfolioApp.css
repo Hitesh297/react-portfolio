@@ -3,7 +3,7 @@
 
 @font-face {
     font-family: ocr;
-    src: url(../fonts/ocr/OCRAEXT.TTF);
+    src: url(../../public/fonts/ocr/OCRAEXT.TTF);
 }
 
 :root {
@@ -27,6 +27,13 @@
     --switch-background: #ccc;
     --switch-thumb-color: #ffffff;
 }   
+
+[data-theme="wedding"] { 
+    --primary-gold: #D4AF37;
+    --deep-red: #800020;
+    --text-color: #333333;
+    --background: #FFF5E6;
+}
 
 html {
     box-sizing: border-box;
@@ -755,10 +762,10 @@ section {
     justify-content: flex-start;
 }
 
-.right {
+/* .right {
     order: 1;
     transform: translateX(-13%);
-}
+} */
 
 
 .project-details {

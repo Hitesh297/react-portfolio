@@ -1,10 +1,10 @@
 import React from "react";
-import AboutMeSection from "./AboutMeSection";
-import ContactSection from "./ContactSection";
-import ExperienceSection from "./ExperienceSection";
-import HeroSection from "./HeroSection";
-import ProjectsSection from "./ProjectsSection";
-import SkillsSection from "./SkillsSection";
+import AboutMeSection from "../portfolio/AboutMeSection";
+import ContactSection from "../portfolio/ContactSection";
+import ExperienceSection from "../portfolio/ExperienceSection";
+import HeroSection from "../portfolio/HeroSection";
+import ProjectsSection from "../portfolio/ProjectsSection";
+import SkillsSection from "../portfolio/SkillsSection";
 
 const Main = () => {
   return (
