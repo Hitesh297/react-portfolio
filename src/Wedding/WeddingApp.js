@@ -27,7 +27,7 @@ function Header() {
         style={{ display: isLoading ? "none" : "block" }}
       >
         <video
-          // controls
+          controls
           autoPlay
           loop
           muted
