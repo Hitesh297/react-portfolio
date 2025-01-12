@@ -8,14 +8,14 @@ import GoogleMap from "./components/GoogleMap";
 import ScrollAnimation from "./components/ScrollAnimation";
 
 function Header() {
-  const [isLoading, setIsLoading] = useState(true);
-  //const [isPlaying, setIsPlaying] = useState(false);
+  //const [isLoading, setIsLoading] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
   useEffect(() => {
     const video = videoRef.current;
-    //video.addEventListener("play", () => setIsPlaying(true));
-    video.addEventListener("canplay", () => setIsLoading(false));
+    video.addEventListener("play", () => setIsPlaying(true));
+    //video.addEventListener("canplay", () => setIsLoading(false));
   }, []);
 
   return (
@@ -24,7 +24,7 @@ function Header() {
 
       <div
         className="video-container"
-        style={{ display: isLoading ? "none" : "block" }}
+        style={{ display: !isPlaying ? "hidden" : "block" }}
       >
         <video
           controls
