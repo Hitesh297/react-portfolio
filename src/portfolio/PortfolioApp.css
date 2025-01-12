@@ -3,7 +3,7 @@
 
 @font-face {
   font-family: ocr;
-  src: url(../../public/fonts/ocr/OCRAEXT.TTF);
+  src: url(/fonts/ocr/OCRAEXT.TTF);
 }
 
 :root {
