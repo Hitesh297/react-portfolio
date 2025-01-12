@@ -27,13 +27,13 @@ function Header() {
         style={{ display: isLoading ? "none" : "block" }}
       >
         <video
-          controls
+          // controls
           autoPlay
           loop
           muted
           playsInline
           ref={videoRef}
-          poster="/images/0F9A1035.jpg"
+          // poster="/images/0F9A1035.jpg"
           preload="auto"
         >
           <source src="/videos/test.mp4" type="video/mp4" />
