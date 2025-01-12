@@ -40,7 +40,7 @@
   background-size: cover;
   background-position: center;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-around;
   text-align: center;
   color: white;
@@ -83,7 +83,7 @@
   position: relative;
   z-index: 1;
   animation: wedding-fadeIn 2s ease-out;
-  padding: 8rem 0px 8rem 0px;
+  padding: 6.5rem 0 0 0;
 }
 
 .wedding-names {
@@ -215,9 +215,5 @@
   .wedding-header {
     justify-content: center; /* Center the item */
     background-position: 18% 90%;
-    align-items: flex-start;
-  }
-  .flex-item-first {
-    display: none;
   }
 }

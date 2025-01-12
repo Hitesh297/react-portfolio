@@ -41,7 +41,6 @@ function Header() {
         </video>
       </div>
 
-      <div className="flex-item-first"></div>
       <div className="wedding-header-content">
         <h1 className="wedding-names" data-aos="fade-up">
           Hitesh weds Shikha
