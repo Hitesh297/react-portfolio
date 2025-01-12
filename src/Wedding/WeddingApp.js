@@ -44,12 +44,12 @@ function Header() {
       <div className="flex-item-first"></div>
       <div className="wedding-header-content">
         <h1 className="wedding-names" data-aos="fade-up">
-          Hitesh & Shikha
+          Hitesh weds Shikha
         </h1>
         <p className="wedding-date" data-aos="fade-up" data-aos-delay="200">
           January 26, 2025
         </p>
-        <p data-aos="fade-up" data-aos-delay="400">
+        <p className="wedding-message" data-aos="fade-up" data-aos-delay="400">
           Request the pleasure of your company to celebrate their wedding
         </p>
       </div>
