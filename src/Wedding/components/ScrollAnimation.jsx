@@ -1,6 +1,7 @@
 // src/components/ScrollAnimation/ScrollAnimation.jsx
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./ScrollAnimation.css";
+import PropTypes from 'prop-types';
 
 const ScrollAnimation = ({ brideImage, groomImage }) => {
   const [bridePosition, setBridePosition] = useState(-100);
@@ -79,5 +80,10 @@ const ScrollAnimation = ({ brideImage, groomImage }) => {
     </div>
   );
 };
+
+ScrollAnimation.propTypes = {
+  brideImage: PropTypes.string,
+  groomImage: PropTypes.string
+}
 
 export default ScrollAnimation;
