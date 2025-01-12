@@ -16,6 +16,7 @@
   --switch-background: #ccc;
   --switch-thumb-color: #ffffff;
   --scrollbar: thin;
+  --section-width: 1000px;
 }
 
 [data-theme="light"] {
@@ -28,6 +29,7 @@
   --switch-background: #ccc;
   --switch-thumb-color: #ffffff;
   --scrollbar: thin;
+  --section-width: 1000px;
 }
 
 [data-theme="wedding"] {
@@ -36,6 +38,7 @@
   --text-color: #333333;
   --background: #fff5e6;
   --scrollbar: none;
+  --section-width: 100%;
 }
 
 html {
@@ -542,7 +545,7 @@ body::-webkit-scrollbar-thumb {
 section {
   margin: 0px auto;
   padding: 50px 0px;
-  max-width: 1000px;
+  max-width: var(--section-width);
 }
 
 /*style section heading*/
