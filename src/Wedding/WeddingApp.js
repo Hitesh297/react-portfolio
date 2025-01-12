@@ -26,6 +26,7 @@ function Header() {
           autoPlay
           loop
           muted
+          playsInline
           ref={videoRef}
           poster="/images/0F9A1035.jpg"
         >
