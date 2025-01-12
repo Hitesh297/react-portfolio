@@ -10,9 +10,9 @@ const ScrollAnimation = ({ brideImage, groomImage }) => {
     const handleScroll = () => {
       const scrollPosition = window.pageYOffset;
       const config = {
-        startPoint: window.innerHeight - window.innerHeight * 0.7,
+        startPoint: window.innerHeight - window.innerHeight * 0.8,
         meetingPoint: window.innerHeight * 2,
-        endPoint: window.innerHeight * 2.5,
+        endPoint: window.innerHeight * 3,
         exitPoint: window.innerHeight * 4,
       };
 
