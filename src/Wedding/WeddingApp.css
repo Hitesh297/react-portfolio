@@ -69,6 +69,10 @@
     object-fit: cover; /* Adjust video fitting as needed */
   }
 
+  .video-container:hover video {
+    cursor: pointer; /* Makes the video clickable */
+  }
+
 .wedding-header-content {
     position: relative;
     z-index: 1;
@@ -80,6 +84,8 @@
     margin-bottom: 1rem;
     color: var(--primary-gold);
     font-family: 'Sail-Regular';
+    pointer-events: none !important;
+    z-index: 2;
 }
 
 .wedding-date {
