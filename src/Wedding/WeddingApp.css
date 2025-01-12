@@ -1,19 +1,24 @@
-@font-face {
-    font-family: Sail-Regular;
-    src: url("../../public/fonts/LeagueScriptNumberOne-webfont.ttf");
-}
+@import url("https://fonts.googleapis.com/css2?family=Sacramento&display=swap");
 
 @keyframes mandalaRotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes wedding-fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
-
 
 /* * {
     margin: 0;
@@ -29,18 +34,19 @@
 } */
 
 .wedding-header {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../../public/images/0F9A1035.jpg');
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    text-align: center;
-    color: white;
-    position: relative;
-    overflow: hidden;
-    gap: 35%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../public/images/0F9A1035.jpg");
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  gap: 35%;
 }
 
 /* .header::before {
@@ -56,154 +62,156 @@
     animation: mandalaRotate 60s linear infinite;
 } */
 .video-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 .video-container video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Adjust video fitting as needed */
-  }
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Adjust video fitting as needed */
+}
 
-  .video-container:hover video {
-    cursor: pointer; /* Makes the video clickable */
-  }
+.video-container:hover video {
+  cursor: pointer; /* Makes the video clickable */
+}
 
 .wedding-header-content {
-    position: relative;
-    z-index: 1;
-    animation: wedding-fadeIn 2s ease-out;
-    padding: 8rem 0px 8rem 0px;
+  position: relative;
+  z-index: 1;
+  animation: wedding-fadeIn 2s ease-out;
+  padding: 8rem 0px 8rem 0px;
 }
 
 .wedding-names {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-    color: var(--primary-gold);
-    font-family: 'Sail-Regular';
-    pointer-events: none !important;
-    z-index: 2;
-    line-height: 1.2;
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  color: var(--primary-gold);
+  font-family: "Sail-Regular";
+  pointer-events: none !important;
+  z-index: 2;
+  line-height: 1.2;
+  font-family: "Sacramento", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .wedding-date {
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #fff;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #fff;
 }
 
 .wedding-event-section {
-    padding: 5rem 2rem;
-    text-align: center;
-    position: relative;
+  padding: 5rem 2rem;
+  text-align: center;
+  position: relative;
 }
 
 .wedding-section-title {
-    font-size: 2.5rem;
-    color: var(--deep-red);
-    margin-bottom: 2rem;
+  font-size: 2.5rem;
+  color: var(--deep-red);
+  margin-bottom: 2rem;
 }
 
 .timeline {
-    max-width: 800px;
-    margin: 0 auto;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .wedding-event {
-    background: white;
-    padding: 2rem;
-    margin: 2rem 0;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    position: relative;
+  background: white;
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 .wedding-event::before {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background: var(--primary-gold);
-    border-radius: 50%;
-    left: -10px;
-    top: 50%;
-    transform: translateY(-50%);
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: var(--primary-gold);
+  border-radius: 50%;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .wedding-event h3 {
-    color: var(--deep-red);
-    margin-bottom: 1rem;
+  color: var(--deep-red);
+  margin-bottom: 1rem;
 }
 
 .wedding-venue {
-    background: var(--deep-red);
-    color: white;
-    padding: 5rem 2rem;
-    margin-top: 5rem;
-    /* margin: 5rem 0 0 0; */
+  background: var(--deep-red);
+  color: white;
+  padding: 5rem 2rem;
+  margin-top: 5rem;
+  /* margin: 5rem 0 0 0; */
 }
 
 .rsvp-form {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 2rem;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-
 .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 2rem;
 }
 
 .gallery-img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 10px;
-    transition: transform 0.3s;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: transform 0.3s;
 }
 
 .gallery-img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .test {
-    width:100%; 
-    height:800px; 
-    display:none;
+  width: 100%;
+  height: 800px;
+  display: none;
 }
 
 @media (max-width: 768px) {
-    .wedding-names {
-        font-size: 2.5rem;
-    }
+  .wedding-names {
+    font-size: 2.5rem;
+  }
 
-    .wedding-date {
-        font-size: 1.5rem;
-    }
+  .wedding-date {
+    font-size: 1.5rem;
+  }
 
-    .wedding-event-section {
-        padding: 3rem 1rem;
-    }
+  .wedding-event-section {
+    padding: 3rem 1rem;
+  }
 }
 
 /* Center the item on smaller screens */
 @media (max-width: 768px) {
-    .wedding-header {
-      justify-content: center; /* Center the item */
-      background-position: 18% 90%;
-      align-items: flex-start;
-    }
-    .flex-item-first {
-        display: none;
-      }
+  .wedding-header {
+    justify-content: center; /* Center the item */
+    background-position: 18% 90%;
+    align-items: flex-start;
   }
+  .flex-item-first {
+    display: none;
+  }
+}
