@@ -26,7 +26,7 @@ function Header() {
       // Check if we have enough video buffered (e.g., 1 second)
       if (video.buffered.length) {
         const bufferedSeconds = video.buffered.end(0) - video.buffered.start(0);
-        if (bufferedSeconds >= 1) {
+        if (bufferedSeconds >= 5) {
           // Wait for at least 1 second of buffer
           setIsReady(true);
           video.play().catch(console.error);
