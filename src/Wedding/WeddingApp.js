@@ -34,7 +34,7 @@ function Header() {
         </video>
       </div>
 
-      <div className="flex-item-first"></div>
+      {/* <div className="flex-item-first"></div>
       <div className="wedding-header-content">
         <h1 className="wedding-names" data-aos="fade-up">
           Hitesh & Shikha
@@ -45,7 +45,7 @@ function Header() {
         <p data-aos="fade-up" data-aos-delay="400">
           Request the pleasure of your company to celebrate their wedding
         </p>
-      </div>
+      </div> */}
     </header>
   );
 }
