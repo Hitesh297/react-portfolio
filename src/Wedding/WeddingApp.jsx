@@ -165,8 +165,8 @@ const WeddingApp = () => {
       <CountDownTimer />
       <EventsSection />
       <ScrollAnimation
-        brideImage="images/bride.png"
-        groomImage="images/groom.png"
+        brideImage="/images/bride.png"
+        groomImage="/images/groom.png"
       />
       {/* <Gallery /> */}
       <GooglePhotoGallery />
