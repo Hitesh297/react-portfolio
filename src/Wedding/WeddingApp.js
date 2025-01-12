@@ -14,7 +14,7 @@ function Header() {
 
   useEffect(() => {
     const video = videoRef.current;
-    video.addEventListener("playing", () => setIsPlaying(true));
+    video.addEventListener("loadeddata", () => setIsPlaying(true));
     //video.addEventListener("canplay", () => setIsLoading(false));
   }, []);
 
