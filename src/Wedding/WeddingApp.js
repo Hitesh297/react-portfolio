@@ -9,18 +9,23 @@ import ScrollAnimation from "./components/ScrollAnimation";
 
 function Header() {
   const [isLoading, setIsLoading] = useState(true);
+  //const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
 
   useEffect(() => {
     const video = videoRef.current;
+    //video.addEventListener("play", () => setIsPlaying(true));
     video.addEventListener("canplay", () => setIsLoading(false));
   }, []);
 
   return (
     <header className="wedding-header">
-      {isLoading && <img src="/images/0F9A1035.jpg" alt="Video Placeholder" />}
+      {/* {isLoading && <img src="/images/0F9A1035.jpg" alt="Video Placeholder" />} */}
 
-      <div className="video-container">
+      <div
+        className="video-container"
+        style={{ display: isLoading ? "none" : "block" }}
+      >
         <video
           controls
           autoPlay
@@ -29,6 +34,7 @@ function Header() {
           playsInline
           ref={videoRef}
           poster="/images/0F9A1035.jpg"
+          preload="auto"
         >
           <source src="/videos/test.mp4" type="video/mp4" />
           Your browser does not support the video tag.
