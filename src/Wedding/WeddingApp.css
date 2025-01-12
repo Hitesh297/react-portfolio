@@ -87,6 +87,7 @@
     font-family: 'Sail-Regular';
     pointer-events: none !important;
     z-index: 2;
+    line-height: 1.2;
 }
 
 .wedding-date {
