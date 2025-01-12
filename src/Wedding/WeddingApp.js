@@ -8,14 +8,49 @@ import GoogleMap from "./components/GoogleMap";
 import ScrollAnimation from "./components/ScrollAnimation";
 
 function Header() {
+  const [isReady, setIsReady] = useState(false);
   //const [isLoading, setIsLoading] = useState(true);
-  const [isPlaying, setIsPlaying] = useState(false);
+  //const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef(null);
+
+  // useEffect(() => {
+  //   const video = videoRef.current;
+  //   //video.addEventListener("loadeddata", () => setIsPlaying(true));
+  //   video.addEventListener("canplay", () => setIsLoading(false));
+  // }, []);
 
   useEffect(() => {
     const video = videoRef.current;
-    video.addEventListener("loadeddata", () => setIsPlaying(true));
-    //video.addEventListener("canplay", () => setIsLoading(false));
+
+    const checkBufferAndPlay = () => {
+      // Check if we have enough video buffered (e.g., 1 second)
+      if (video.buffered.length) {
+        const bufferedSeconds = video.buffered.end(0) - video.buffered.start(0);
+        if (bufferedSeconds >= 1) {
+          // Wait for at least 1 second of buffer
+          setIsReady(true);
+          video.play().catch(console.error);
+        } else {
+          // Check again in a short while
+          setTimeout(checkBufferAndPlay, 200);
+        }
+      }
+    };
+
+    const handleLoadedData = () => {
+      checkBufferAndPlay();
+    };
+
+    video.addEventListener("loadeddata", handleLoadedData);
+
+    // Also check buffer progress
+    video.addEventListener("progress", checkBufferAndPlay);
+
+    // Cleanup
+    return () => {
+      video.removeEventListener("loadeddata", handleLoadedData);
+      video.removeEventListener("progress", checkBufferAndPlay);
+    };
   }, []);
 
   return (
@@ -24,7 +59,7 @@ function Header() {
 
       <div
         className="video-container"
-        style={{ display: !isPlaying ? "hidden" : "block" }}
+        style={{ display: !isReady ? "hidden" : "block" }}
       >
         <video
           controls
