@@ -82,8 +82,8 @@ const ScrollAnimation = ({ brideImage, groomImage }) => {
 };
 
 ScrollAnimation.propTypes = {
-  brideImage: PropTypes.string,
-  groomImage: PropTypes.string
+  brideImage: PropTypes.img,
+  groomImage: PropTypes.img
 }
 
 export default ScrollAnimation;
