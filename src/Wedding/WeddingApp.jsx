@@ -7,6 +7,7 @@ import GooglePhotoGallery from "./components/GooglePhotoGallery";
 import GoogleMap from "./components/GoogleMap";
 import ScrollAnimation from "./components/ScrollAnimation";
 import CountDownTimer from "./components/CountDownTimer";
+import Trailer from "./components/Trailer";
 
 function Header() {
   const [isLoading, setIsLoading] = useState(true);
@@ -164,6 +165,7 @@ const WeddingApp = () => {
       <Header />
       <CountDownTimer />
       <EventsSection />
+      <Trailer />
       <ScrollAnimation
         brideImage="/images/bride.png"
         groomImage="/images/groom.png"

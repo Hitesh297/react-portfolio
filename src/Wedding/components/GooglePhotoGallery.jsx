@@ -16,6 +16,8 @@ const GooglePhotoGallery = () => {
   }, []);
 
   return (
+    <section className="wedding-trailer-section">
+      <h2 className="wedding-section-title">Photo Gallery</h2>
     <div
       className="pa-gallery-player-widget"
       style={{ width: "100%", height: "800px", display: "none" }}
@@ -45,6 +47,7 @@ const GooglePhotoGallery = () => {
       <object data="https://lh3.googleusercontent.com/pw/AP1GczOUC41E40Y1kIJOkuT1osYXxNlLdj0I6PiDW1yP0ryVLNOEyZ-KTxVAdTHIiI6NHWkxjFCFeMeUHi3Rw9djgq-h1GXhoc6JFZi4OCvlsFX9Di0PFf9o=w1920-h1080"></object>
       <object data="https://lh3.googleusercontent.com/pw/AP1GczMJkNuVjzUuh6rQUCej4LFCZJu_OfnK-oiB-kJYWZHc34cB3i0kGo3Vvwwq-rt5TohGoTCUCqTjc6zAz08-5Hmmrl-qPfDvl8ntdz3oHHH47Vh3AcPD=w1920-h1080"></object>
     </div>
+    </section>
   );
 };
 

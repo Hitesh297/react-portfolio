@@ -117,6 +117,11 @@
   position: relative;
 }
 
+.wedding-trailer-section {
+  text-align: center;
+  position: relative;
+}
+
 .wedding-section-title {
   font-size: 2.5rem;
   color: var(--deep-red);
