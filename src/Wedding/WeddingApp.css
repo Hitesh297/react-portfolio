@@ -120,6 +120,7 @@
 .wedding-trailer-section {
   text-align: center;
   position: relative;
+  max-width: 800px;
 }
 
 .wedding-section-title {
