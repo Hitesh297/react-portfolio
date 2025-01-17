@@ -2,7 +2,7 @@ import "./Trailer.css";
 
 const Trailer = () => (
     <section className="wedding-trailer-section">
-      <h2 className="wedding-section-title">Wedding Trailer</h2>
+      <h2 className="wedding-section-title">Pre-Wedding Teaser</h2>
       <div className="video-wrapper">
           <iframe 
             src="https://www.youtube.com/embed/qW1LvHpj3RU?si=eHd8IpPMEpj8a6br" 

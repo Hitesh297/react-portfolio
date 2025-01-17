@@ -20,7 +20,7 @@ const GooglePhotoGallery = () => {
       <h2 className="wedding-section-title">Photo Gallery</h2>
     <div
       className="pa-gallery-player-widget"
-      style={{ width: "100%", height: "800px", display: "none" }}
+      style={{ width: "100%", height: "480px", display: "none" }}
       data-link="https://photos.app.goo.gl/YijBRomeq3BrX9Qc8"
       data-title="20 new items by Hitesh Patel"
       data-delay="2"
