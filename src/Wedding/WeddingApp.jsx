@@ -51,7 +51,7 @@ function Header() {
           January 26, 2025
         </p>
         <p className="wedding-message" data-aos="fade-up" data-aos-delay="400">
-          Request the pleasure of your company to celebrate their wedding
+          Request the pleasure of your company to celebrate our weddingss
         </p>
       </div>
     </header>
