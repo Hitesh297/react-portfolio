@@ -7,7 +7,7 @@ import GooglePhotoGallery from "./components/GooglePhotoGallery";
 import GoogleMap from "./components/GoogleMap";
 import ScrollAnimation from "./components/ScrollAnimation";
 import CountDownTimer from "./components/CountDownTimer";
-import Trailer from "./components/Trailer";
+import YoutubeVideo from "./components/YoutubeVideo";
 
 function Header() {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,10 +48,10 @@ function Header() {
           Hitesh weds Shikha
         </h1>
         <p className="wedding-date" data-aos="fade-up" data-aos-delay="200">
-          January 26, 2025
+          February 15, 2025
         </p>
         <p className="wedding-message" data-aos="fade-up" data-aos-delay="400">
-          Request the pleasure of your company to celebrate their wedding
+          Request the pleasure of your company to celebrate our wedding
         </p>
       </div>
     </header>
@@ -71,42 +71,29 @@ const EventsSection = () => (
     <h2 className="wedding-section-title">Wedding Events</h2>
     <div className="timeline">
       <Event
-        title="Haldi Ceremony (Groom)"
-        time="January 24, 2025 | 10:00 AM"
-        description="Begin our celebration with the traditional application of haldi"
-        animation="fade-right"
-      />
-      <Event
-        title="Haldi Ceremony (Bride & Groom)"
-        time="January 25, 2025 | 11:00 AM"
+        title="Haldi Ceremony"
+        time="February 13, 2025 | 9:00 AM"
         description="Begin our celebration with the traditional application of haldi"
         animation="fade-right"
       />
 
       <Event
-        title="Grah Satak (Groom)"
-        time="January 25, 2025 | 3:00 PM"
+        title="Grah Satak"
+        time="February 14, 2025 | 3:00 PM"
         description="Pre-wedding ritual to remove all the obstacles and bring happiness and prosperity into the lives of the couple"
         animation="fade-left"
       />
 
       <Event
-        title="Sangeet Night"
-        time="January 25, 2025 | 7:00 PM"
+        title="DJ Night"
+        time="February 14, 2025 | 9:00 PM"
         description="Join us for an evening of music, dance, and celebration"
         animation="fade-left"
       />
 
       <Event
-        title="Grah Satak (Bride)"
-        time="January 26, 2025 | 10:30 AM"
-        description="Pre-wedding ritual to remove all the obstacles and bring happiness and prosperity into the lives of the couple"
-        animation="fade-left"
-      />
-
-      <Event
-        title="Wedding Ceremony"
-        time="January 26, 2025"
+        title="Wedding Ceremony (Hast Melap)"
+        time="February 15, 2025 : 8:00 PM"
         description="The auspicious wedding ceremony followed by lunch"
         animation="fade-right"
       />
@@ -120,9 +107,9 @@ const VenueSection = () => (
       Venue
     </h2>
     <div data-aos="zoom-in">
-      <h3>Radhe Farm</h3>
-      <p>Mogar, Gujarat 396445</p>
-      <p>India</p>
+      <h3>51 Eru Garden Society</h3>
+      <p>Eru Char Rasta, Navsari</p>
+      <p>Gujarat, IN</p>
     </div>
     <GoogleMap />
   </section>
@@ -165,7 +152,8 @@ const WeddingApp = () => {
       <Header />
       <CountDownTimer />
       <EventsSection />
-      <Trailer />
+      <YoutubeVideo title="Pre Wedding Teaser" videoUrl="https://www.youtube.com/embed/qW1LvHpj3RU?si=lvEpnpbk4bKhH3lw" />
+      <YoutubeVideo title="Pre Wedding Movie" videoUrl="https://www.youtube.com/embed/IJC3tqQtIPY?si=6fQukObxqhrg_V6O" />
       <ScrollAnimation
         brideImage="/images/bride.png"
         groomImage="/images/groom.png"

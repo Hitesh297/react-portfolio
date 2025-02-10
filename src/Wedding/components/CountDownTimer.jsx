@@ -11,7 +11,7 @@ export default function CountDownTimer() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      const weddingDate = new Date("January 26, 2025 10:00:00").getTime();
+      const weddingDate = new Date("February 15, 2025 20:00:00").getTime();
       const now = new Date().getTime();
       const gap = weddingDate - now;
 
@@ -21,8 +21,7 @@ export default function CountDownTimer() {
       const day = hour * 24;
 
       const textDay = Math.floor(gap / day)
-        .toString()
-        .padStart(3, "0");
+        .toString();
       const textHour = Math.floor((gap % day) / hour)
         .toString()
         .padStart(2, "0");
