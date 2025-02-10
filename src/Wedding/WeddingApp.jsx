@@ -29,7 +29,6 @@ function Header() {
         style={{ display: isLoading ? "hidden" : "block" }}
       >
         <video
-          controls
           autoPlay
           loop
           muted
