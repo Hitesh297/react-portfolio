@@ -1,11 +1,12 @@
-import "./Trailer.css";
+import "./YoutubeVideo.css";
+import PropTypes from 'prop-types';
 
-const Trailer = () => (
+const YoutubeVideo = ({ title, videoUrl }) => (
     <section className="wedding-trailer-section">
-      <h2 className="wedding-section-title">Pre-Wedding Teaser</h2>
+      <h2 className="wedding-section-title">{title}</h2>
       <div className="video-wrapper">
           <iframe 
-            src="https://www.youtube.com/embed/qW1LvHpj3RU?si=eHd8IpPMEpj8a6br" 
+            src={videoUrl} 
             title="YouTube video player" 
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
             referrerPolicy="strict-origin-when-cross-origin" 
@@ -14,5 +15,9 @@ const Trailer = () => (
         </div>
     </section>
   );
+  YoutubeVideo.propTypes = {
+    title: PropTypes.string.isRequired,
+    videoUrl: PropTypes.string.isRequired
+  }
 
-  export default Trailer;
+  export default YoutubeVideo;
