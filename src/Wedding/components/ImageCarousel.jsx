@@ -8,35 +8,29 @@ import "swiper/css/navigation";
 import "./ImageCarousel.css"; // Import CSS for styling
 
 
-const ImageCarousel = ({ albumId }) => {
+const ImageCarousel = ({ apiUrl }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [images, setImages] = useState([]);
   const fullSizeRefs = useRef([]);
-  const CLIENT_ID = "9adfe3683a98b6a";
+
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch(`https://api.imgur.com/3/album/${albumId}/images`, {
-          headers: {
-            Authorization: `Client-ID ${CLIENT_ID}`,
-          },
-        });
-        //const response = await fetch(apiUrl);
-        const {data} = await response.json();
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        console.log("Fetched Data:", data);
 
-        if(!response.ok) { 
-          throw new Error("Error fetching images: Response Code", response.status);
-        }
-        // Cache only thumbnails
-        const processedImages = 
+        // Process images with caching
+        const processedImages = await Promise.all(
           data.map(async (image) => ({
-            name: image.title ,
-            thumbnail: await cacheThumbnail(getThumbnailUrl(image.link), image.title),
-            fullSize: image.link, // Load full-size dynamically
+            name: image.name,
+            // thumbnail: await cacheThumbnail(getThumbnailUrl(image.url), image.name),
+            thumbnail: getThumbnailUrl(image.url),
+            fullSize: getFullSizeUrl(image.url),
             loaded: false, // Track whether full image is loaded
-          }));
-        
+          }))
+        );
 
         setImages(processedImages);
       } catch (error) {
@@ -45,7 +39,7 @@ const ImageCarousel = ({ albumId }) => {
     };
 
     fetchImages();
-  }, [albumId]);
+  }, [apiUrl]);
 
   useEffect(() => {
     if (!isFullScreen) return;
@@ -67,33 +61,59 @@ const ImageCarousel = ({ albumId }) => {
 
     fullSizeRefs.current.forEach((img) => img && observer.observe(img));
 
-    return () => fullSizeRefs.current.forEach((img) => img && observer.unobserve(img));
+    return () => {
+      fullSizeRefs.current.forEach((img) => img && observer.unobserve(img));
+      observer.disconnect();
+    };
   }, [isFullScreen]);
 
   // Generate lower resolution thumbnail URL
-  const getThumbnailUrl = (url) => url.replace(".jpg", "m.jpg");
+  const getThumbnailUrl = (url) => { 
+    return url.replace(".jpeg", "l.jpeg");
+  };
+
+  // Generate full resolution image URL
+  const getFullSizeUrl = (url) => url.replace(/=w\d+-h\d+/, "=w1920-h1080");
 
   // Function to cache only thumbnail images
   const cacheThumbnail = async (url, cacheKey) => {
-    console.log('caching');
-    const cachedBlob = localStorage.getItem(cacheKey);
-    if (cachedBlob) return cachedBlob; // Return cached thumbnail
+    console.log("Checking cache for:", cacheKey);
+    const cachedBase64 = localStorage.getItem(cacheKey);
+
+    if (cachedBase64 && cachedBase64.startsWith("data:image")) {
+      console.log("Loaded from cache:", cacheKey);
+      return cachedBase64;
+    }
 
     try {
-      console.log('getting image for caching');
+      console.log("Fetching image for caching:", url);
       const response = await fetch(url);
-      if(!response.ok) {
-        console.log('Error occured while getting image');
+
+      if (!response.ok) {
+        console.error("Error occurred while fetching image:", response.status);
         throw new Error(response.status);
       }
+
       const blob = await response.blob();
-      const blobUrl = URL.createObjectURL(blob); // Convert blob to a local URL
-      localStorage.setItem(cacheKey, blobUrl); // Store in localStorage
-      return blobUrl;
+      const base64 = await convertBlobToBase64(blob);
+
+      localStorage.setItem(cacheKey, base64);
+      console.log("Image cached:", cacheKey);
+
+      return base64;
     } catch (error) {
       console.error("Error caching thumbnail:", error);
-      return url; // Fallback to original URL
+      return url;
     }
+  };
+
+  const convertBlobToBase64 = (blob) => {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onloadend = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(blob);
+    });
   };
 
   const openFullScreen = (index) => {
