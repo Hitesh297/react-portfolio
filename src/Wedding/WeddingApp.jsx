@@ -8,6 +8,7 @@ import GoogleMap from "./components/GoogleMap";
 import ScrollAnimation from "./components/ScrollAnimation";
 import CountDownTimer from "./components/CountDownTimer";
 import YoutubeVideo from "./components/YoutubeVideo";
+import ImageCarousel from "./components/ImageCarousel";
 
 function Header() {
   const [isLoading, setIsLoading] = useState(true);
@@ -159,6 +160,9 @@ const WeddingApp = () => {
       />
       {/* <Gallery /> */}
       <GooglePhotoGallery />
+      <div className="bg-gray-900 min-h-screen flex items-center justify-center">
+     <ImageCarousel apiUrl="https://script.google.com/macros/s/AKfycbycfuHR0NbSVDgxEGMcHdFRLKrqWsdvP8cDyKa0gsxRUVo2b56VDHV6AczUD159V-LZFQ/exec" />
+   </div>
       <VenueSection />
     </div>
   );
