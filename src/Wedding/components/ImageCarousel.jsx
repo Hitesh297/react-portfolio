@@ -25,8 +25,8 @@ const ImageCarousel = ({ apiUrl }) => {
         const processedImages = await Promise.all(
           data.map(async (image) => ({
             name: image.name,
-            // thumbnail: await cacheThumbnail(getThumbnailUrl(image.url), image.name),
-            thumbnail: getThumbnailUrl(image.url),
+            thumbnail: await cacheThumbnail(getThumbnailUrl(image.url), image.name),
+            //thumbnail: getThumbnailUrl(image.url),
             fullSize: getFullSizeUrl(image.url),
             loaded: false, // Track whether full image is loaded
           }))
@@ -73,7 +73,7 @@ const ImageCarousel = ({ apiUrl }) => {
   };
 
   // Generate full resolution image URL
-  const getFullSizeUrl = (url) => url.replace(/=w\d+-h\d+/, "=w1920-h1080");
+  const getFullSizeUrl = (url) => url.replace(".jpeg", "h.jpeg");
 
   // Function to cache only thumbnail images
   const cacheThumbnail = async (url, cacheKey) => {
