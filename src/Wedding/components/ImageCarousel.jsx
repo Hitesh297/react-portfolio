@@ -8,27 +8,35 @@ import "swiper/css/navigation";
 import "./ImageCarousel.css"; // Import CSS for styling
 
 
-const ImageCarousel = ({ apiUrl }) => {
+const ImageCarousel = ({ albumId }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [images, setImages] = useState([]);
   const fullSizeRefs = useRef([]);
-
+  const CLIENT_ID = "9adfe3683a98b6a";
   useEffect(() => {
     const fetchImages = async () => {
       try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
+        const response = await fetch(`https://api.imgur.com/3/album/${albumId}/images`, {
+          headers: {
+            Authorization: `Client-ID ${CLIENT_ID}`,
+          },
+        });
+        //const response = await fetch(apiUrl);
+        const {data} = await response.json();
 
+        if(!response.ok) { 
+          throw new Error("Error fetching images: Response Code", response.status);
+        }
         // Cache only thumbnails
-        const processedImages = await Promise.all(
+        const processedImages = 
           data.map(async (image) => ({
-            name: image.name,
-            thumbnail: await cacheThumbnail(getThumbnailUrl(image.url), image.name),
-            fullSize: getFullSizeUrl(image.url), // Load full-size dynamically
+            name: image.title ,
+            thumbnail: await cacheThumbnail(getThumbnailUrl(image.link), image.title),
+            fullSize: image.link, // Load full-size dynamically
             loaded: false, // Track whether full image is loaded
-          }))
-        );
+          }));
+        
 
         setImages(processedImages);
       } catch (error) {
@@ -37,7 +45,7 @@ const ImageCarousel = ({ apiUrl }) => {
     };
 
     fetchImages();
-  }, [apiUrl]);
+  }, [albumId]);
 
   useEffect(() => {
     if (!isFullScreen) return;
@@ -63,10 +71,7 @@ const ImageCarousel = ({ apiUrl }) => {
   }, [isFullScreen]);
 
   // Generate lower resolution thumbnail URL
-  const getThumbnailUrl = (url) => url.replace(/=w\d+-h\d+/, "=w800-h600");
-
-  // Generate full resolution image URL
-  const getFullSizeUrl = (url) => url.replace(/=w\d+-h\d+/, "=w1920-h1080");
+  const getThumbnailUrl = (url) => url.replace(".jpg", "m.jpg");
 
   // Function to cache only thumbnail images
   const cacheThumbnail = async (url, cacheKey) => {

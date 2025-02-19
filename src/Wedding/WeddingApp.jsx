@@ -161,7 +161,7 @@ const WeddingApp = () => {
       {/* <Gallery /> */}
       <GooglePhotoGallery />
       <div className="bg-gray-900 min-h-screen flex items-center justify-center">
-     <ImageCarousel apiUrl="https://script.google.com/macros/s/AKfycbycfuHR0NbSVDgxEGMcHdFRLKrqWsdvP8cDyKa0gsxRUVo2b56VDHV6AczUD159V-LZFQ/exec" />
+     <ImageCarousel albumId="P4inGo3" />
    </div>
       <VenueSection />
     </div>
