@@ -151,7 +151,7 @@ const ImageCarousel = ({ apiUrl, title }) => {
   }, [isFullScreen]);
 
   const getThumbnailUrl = (url) => url.replace(".jpeg", "h.jpeg");
-  const getFullSizeUrl = (url) => url.replace(".jpeg", "h.jpeg");
+  const getFullSizeUrl = (url) => url.replace(".xxjpeg", "h.jpeg");
 
   const initDB = async () => {
     return await openDB('ImageCache', 1, {
