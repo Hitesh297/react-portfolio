@@ -139,12 +139,12 @@ const ImageCarousel = ({ apiUrl, title }) => {
           breakpoints={{
             // when window width is >= 320px (mobile)
             320: {
-              slidesPerView: 1,
+              slidesPerView: 1.2,
               spaceBetween: 20
             },
             // when window width is >= 480px (small tablets)
             480: {
-              slidesPerView: 2,
+              slidesPerView: 2.5,
               spaceBetween: 30
             },
             // when window width is >= 768px (tablets/desktop)
