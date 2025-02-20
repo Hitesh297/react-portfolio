@@ -136,7 +136,23 @@ const ImageCarousel = ({ apiUrl, title }) => {
           effect="coverflow" 
           grabCursor 
           centeredSlides 
-          slidesPerView={3}
+          breakpoints={{
+            // when window width is >= 320px (mobile)
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 20
+            },
+            // when window width is >= 480px (small tablets)
+            480: {
+              slidesPerView: 2,
+              spaceBetween: 30
+            },
+            // when window width is >= 768px (tablets/desktop)
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 40
+            }
+          }}
           coverflowEffect={{ rotate: 0, stretch: 100, depth: 300, modifier: 1, slideShadows: false }}
           pagination={{ clickable: true }}
           modules={[EffectCoverflow, Pagination]}
@@ -163,9 +179,13 @@ const ImageCarousel = ({ apiUrl, title }) => {
               initialSlide={currentIndex} 
               navigation 
               pagination={{ clickable: true }}
+              zoom={{
+                maxRatio: 3,
+                minRatio: 1,
+                toggle: true,
+              }}
               modules={[Pagination, Navigation]} 
               className="fullscreen-swiper"
-              zoom="true"
             >
               {images.map((image, index) => (
                 <SwiperSlide key={index} className="fullscreen-slide">
