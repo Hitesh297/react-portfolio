@@ -159,10 +159,12 @@ const WeddingApp = () => {
         groomImage="/images/groom.png"
       />
       {/* <Gallery /> */}
-      <GooglePhotoGallery />
-      <div className="bg-gray-900 min-h-screen flex items-center justify-center">
-     <ImageCarousel apiUrl="https://script.google.com/macros/s/AKfycbzGqNBbCuvIVVYsiNpgJpuSURIUr6xkl-o3iiuge1OFxoXpLl3YWxW7dZkdtl4Tqp6TdQ/exec" />
-   </div>
+      {/* <GooglePhotoGallery /> */}
+
+      <ImageCarousel title="Pre Wedding Pictures" apiUrl="https://script.google.com/macros/s/AKfycbzg2ZEMOz3hC0D_2gcgSoBO2ksF6acNVl2gxfYLAh0Ds1nQhT8bVrDexiO4RnXGo9We/exec" />
+      
+     <ImageCarousel title="Haldi Pictures" apiUrl="https://script.google.com/macros/s/AKfycbzGqNBbCuvIVVYsiNpgJpuSURIUr6xkl-o3iiuge1OFxoXpLl3YWxW7dZkdtl4Tqp6TdQ/exec" />
+   
       <VenueSection />
     </div>
   );

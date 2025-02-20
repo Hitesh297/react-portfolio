@@ -1,3 +1,11 @@
+.gallery-section {
+  text-align: center;
+}
+
+.gallery-section h2 {
+  margin: 0;
+  padding: 0;
+}
 /* Main Container */
 .carousel-container {
     display: flex;
@@ -9,7 +17,6 @@
   /* Swiper main container */
   .swiper-container {
     width: 100%;
-    max-width: 1000px;
     padding-top: 20px;
     padding-bottom: 50px;
   }
@@ -18,7 +25,7 @@
   .swiper-slide {
     position: relative;
     width: 364px;
-    height: 517px;
+    height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
