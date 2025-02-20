@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
+import { EffectCoverflow, Pagination, Navigation, Zoom } from "swiper/modules";
 import { openDB } from 'idb';
 import "swiper/css";
 import "swiper/css/effect-coverflow";
@@ -20,27 +20,104 @@ const ImageCarousel = ({ apiUrl, title }) => {
         const response = await fetch(apiUrl);
         const data = await response.json();
 
-        const initialImages = data.map((image) => ({
-          name: image.name,
-          thumbnail: getThumbnailUrl(image.url),
-          fullSize: getFullSizeUrl(image.url),
-          loaded: false,
-        }));
+        const initialImages = data.map((image) => {
+          const thumbnailUrl = getThumbnailUrl(image.url);
+          const fullSizeUrl = getFullSizeUrl(image.url);
+          
+          return {
+            name: image.name,
+            thumbnail: thumbnailUrl,
+            fullSize: fullSizeUrl,
+            thumbnailLoaded: false,
+            fullSizeLoaded: false,
+            // Track if URLs are the same for cache reuse
+            isSameImage: thumbnailUrl === fullSizeUrl
+          };
+        });
 
         setImages(initialImages);
 
         // Load images progressively
         initialImages.forEach(async (image, index) => {
-          const cachedThumbnail = await getImageFromIndexedDB(image.name);
-          if (cachedThumbnail) {
-            setImages((prev) =>
-              prev.map((img, i) => (i === index ? { ...img, thumbnail: cachedThumbnail, loaded: true } : img))
-            );
+          // If thumbnail and fullsize are the same, we only need to cache once
+          if (image.isSameImage) {
+            const cachedImage = await getImageFromIndexedDB(image.name);
+            if (cachedImage) {
+              setImages((prev) =>
+                prev.map((img, i) => (
+                  i === index 
+                    ? { 
+                        ...img, 
+                        thumbnail: cachedImage, 
+                        fullSize: cachedImage,
+                        thumbnailLoaded: true,
+                        fullSizeLoaded: true 
+                      } 
+                    : img
+                ))
+              );
+            } else {
+              const cachedUrl = await cacheImage(image.thumbnail, image.name);
+              setImages((prev) =>
+                prev.map((img, i) => (
+                  i === index 
+                    ? { 
+                        ...img, 
+                        thumbnail: cachedUrl, 
+                        fullSize: cachedUrl,
+                        thumbnailLoaded: true,
+                        fullSizeLoaded: true 
+                      } 
+                    : img
+                ))
+              );
+            }
           } else {
-            const thumbnailUrl = await cacheThumbnail(image.thumbnail, image.name);
-            setImages((prev) =>
-              prev.map((img, i) => (i === index ? { ...img, thumbnail: thumbnailUrl, loaded: true } : img))
-            );
+            // Handle different thumbnail and fullsize URLs
+            const [cachedThumbnail, cachedFullSize] = await Promise.all([
+              getImageFromIndexedDB(`thumb_${image.name}`),
+              getImageFromIndexedDB(`full_${image.name}`)
+            ]);
+
+            // Update thumbnail
+            if (cachedThumbnail) {
+              setImages((prev) =>
+                prev.map((img, i) => (
+                  i === index 
+                    ? { ...img, thumbnail: cachedThumbnail, thumbnailLoaded: true } 
+                    : img
+                ))
+              );
+            } else {
+              const thumbnailUrl = await cacheImage(image.thumbnail, `thumb_${image.name}`);
+              setImages((prev) =>
+                prev.map((img, i) => (
+                  i === index 
+                    ? { ...img, thumbnail: thumbnailUrl, thumbnailLoaded: true } 
+                    : img
+                ))
+              );
+            }
+
+            // Update fullsize
+            if (cachedFullSize) {
+              setImages((prev) =>
+                prev.map((img, i) => (
+                  i === index 
+                    ? { ...img, fullSize: cachedFullSize, fullSizeLoaded: true } 
+                    : img
+                ))
+              );
+            } else {
+              const fullSizeUrl = await cacheImage(image.fullSize, `full_${image.name}`);
+              setImages((prev) =>
+                prev.map((img, i) => (
+                  i === index 
+                    ? { ...img, fullSize: fullSizeUrl, fullSizeLoaded: true } 
+                    : img
+                ))
+              );
+            }
           }
         });
       } catch (error) {
@@ -59,7 +136,7 @@ const ImageCarousel = ({ apiUrl, title }) => {
         if (entry.isIntersecting) {
           const index = entry.target.getAttribute("data-index");
           setImages((prev) =>
-            prev.map((img, i) => (i === Number(index) ? { ...img, loaded: true } : img))
+            prev.map((img, i) => (i === Number(index) ? { ...img, fullSizeLoaded: true } : img))
           );
         }
       });
@@ -86,7 +163,7 @@ const ImageCarousel = ({ apiUrl, title }) => {
     });
   };
 
-  const cacheThumbnail = async (url, cacheKey) => {
+  const cacheImage = async (url, cacheKey) => {
     const cachedImage = await getImageFromIndexedDB(cacheKey);
     if (cachedImage) return cachedImage;
 
@@ -137,23 +214,20 @@ const ImageCarousel = ({ apiUrl, title }) => {
           grabCursor 
           centeredSlides 
           breakpoints={{
-            // when window width is >= 320px (mobile)
             320: {
               slidesPerView: 1.2,
               spaceBetween: 20
             },
-            // when window width is >= 480px (small tablets)
             480: {
               slidesPerView: 2.5,
               spaceBetween: 30
             },
-            // when window width is >= 768px (tablets/desktop)
             768: {
               slidesPerView: 3,
               spaceBetween: 40
             }
           }}
-          coverflowEffect={{ rotate: 0, stretch: 100, depth: 300, modifier: 1, slideShadows: false }}
+          coverflowEffect={{ rotate: 0, stretch: 100, depth: 300, modifier: 1, slideShadows: true }}
           pagination={{ clickable: true }}
           modules={[EffectCoverflow, Pagination]}
           lazy="true"
@@ -162,11 +236,10 @@ const ImageCarousel = ({ apiUrl, title }) => {
           {images.map((image, index) => (
             <SwiperSlide key={index} className="swiper-slide" onClick={() => openFullScreen(index)}>
               <img 
-                src={image.thumbnail} 
+                src={image.thumbnailLoaded ? image.thumbnail : ''} 
                 alt={image.name} 
                 className="slide-image" 
-                loading="lazy" 
-                data-src={image.fullSize} 
+                loading="lazy"
               />
             </SwiperSlide>
           ))}
@@ -179,24 +252,22 @@ const ImageCarousel = ({ apiUrl, title }) => {
               initialSlide={currentIndex} 
               navigation 
               pagination={{ clickable: true }}
-              zoom={{
-                maxRatio: 3,
-                minRatio: 1,
-                toggle: true,
-              }}
-              modules={[Pagination, Navigation]} 
+              zoom={true}
+              modules={[Pagination, Navigation, Zoom]} 
               className="fullscreen-swiper"
             >
               {images.map((image, index) => (
                 <SwiperSlide key={index} className="fullscreen-slide">
-                  <img 
-                    ref={(el) => (fullSizeRefs.current[index] = el)} 
-                    data-index={index}
-                    src={image.loaded ? image.fullSize : image.thumbnail}
-                    alt={image.name} 
-                    className="fullscreen-image" 
-                    loading="lazy" 
-                  />
+                  <div className="swiper-zoom-container">
+                    <img 
+                      ref={(el) => (fullSizeRefs.current[index] = el)} 
+                      data-index={index}
+                      src={image.fullSizeLoaded ? image.fullSize : (image.thumbnailLoaded ? image.thumbnail : '')}
+                      alt={image.name} 
+                      className="fullscreen-image" 
+                      loading="lazy" 
+                    />
+                  </div>
                 </SwiperSlide>
               ))}
             </Swiper>
