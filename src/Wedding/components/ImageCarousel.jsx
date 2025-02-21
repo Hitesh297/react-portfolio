@@ -19,6 +19,9 @@ const ImageCarousel = ({ apiUrl, title }) => {
       try {
         const response = await fetch(apiUrl);
         const data = await response.json();
+        if (!response.ok) {
+          throw new Error(`Error occured while fetching data from ${apiUrl}. Response code : ${response.status}`);
+        }
 
         const initialImages = data.map((image) => {
           const thumbnailUrl = getThumbnailUrl(image.url);
@@ -175,6 +178,9 @@ const ImageCarousel = ({ apiUrl, title }) => {
     try {
       const response = await fetch(imageUrl);
       const blob = await response.blob();
+      if (!response.ok) {
+        throw new Error(`Error occured while fetching data from ${imageUrl}. Response code : ${response.status}`);
+      }
       const db = await initDB();
       const tx = db.transaction('images', 'readwrite');
       await tx.objectStore('images').put(blob, imageName);
