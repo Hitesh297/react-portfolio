@@ -161,7 +161,7 @@ const WeddingApp = () => {
       {/* <Gallery /> */}
       {/* <GooglePhotoGallery /> */}
 
-      <ImageCarousel title="Pre Wedding Pictures" apiUrl="https://script.google.com/macros/s/AKfycbzg2ZEMOz3hC0D_2gcgSoBO2ksF6acNVl2gxfYLAh0Ds1nQhT8bVrDexiO4RnXGo9We/exec" />
+      <ImageCarousel title="Pre Wedding Pictures" apiUrl="https://script.google.com/macros/s/AKfycbzPCNv99JARO9kpFKJvEyMSxw2T-7U_dDrhmnPVDlRX5cCzPOh_RG33PRZW9sUGxA9V/exec" />
       
      <ImageCarousel title="Haldi Pictures" apiUrl="https://script.google.com/macros/s/AKfycbzGqNBbCuvIVVYsiNpgJpuSURIUr6xkl-o3iiuge1OFxoXpLl3YWxW7dZkdtl4Tqp6TdQ/exec" />
    
