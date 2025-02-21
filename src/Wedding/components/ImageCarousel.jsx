@@ -24,8 +24,8 @@ const ImageCarousel = ({ apiUrl, title }) => {
         }
 
         const initialImages = data.map((image) => {
-          const thumbnailUrl = getThumbnailUrl(image.url);
-          const fullSizeUrl = getFullSizeUrl(image.url);
+          const thumbnailUrl = getThumbnailUrl(image.link);
+          const fullSizeUrl = getFullSizeUrl(image.link);
           
           return {
             name: image.name,
