@@ -1,7 +1,29 @@
+/* .wedding-trailer-section {
+  text-align: center; /* Center the entire section 
+  padding: 20px;  Add padding to match ImageCarousel
+} */
+
+/* .title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%;
+} */
+
+.wedding-section-title {
+  text-align: center;
+  font-size: 24px; /* Match ImageCarousel title size */
+  margin: 0;
+  width: 100%;
+}
+
 .video-wrapper {
   position: relative;
   padding-top: 56.25%; /* 16:9 Aspect Ratio */
   background: #fff5e6;
+  max-width: 1228px; /* Match ImageCarousel max width if needed */
+  margin: 0 auto; /* Center the video wrapper */
 }
 
 .video-wrapper iframe {
