@@ -121,6 +121,7 @@
   text-align: center;
   position: relative;
   max-width: 800px;
+  padding: 50px 0;
 }
 
 .wedding-section-title {
@@ -200,6 +201,14 @@
   width: 100%;
   height: 800px;
   display: none;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center; /* Center the title */
+  align-items: center;
+  margin-bottom: 20px;
+  width: 100%; /* Ensure title container takes full width */
 }
 
 @media (max-width: 768px) {

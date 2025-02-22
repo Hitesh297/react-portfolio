@@ -7,12 +7,14 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./ImageCarousel.css";
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 const ImageCarousel = ({ apiUrl, title }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [images, setImages] = useState([]);
   const fullSizeRefs = useRef([]);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const fetchImages = async () => {
@@ -211,9 +213,16 @@ const ImageCarousel = ({ apiUrl, title }) => {
     setIsFullScreen(false);
   };
 
+  const handleViewAll = () => {
+    navigate('/all-images', { state: { apiUrl, title } });
+  };
+
   return (
+    <div className="gallery-wrapper"> {/* Wrap the entire gallery */}
     <section className="gallery-section">
+       <div className="title-container"> {/* Wrap title and button */}
       <h2 className="wedding-section-title">{title}</h2>
+        </div>
       <div className="carousel-container">
         <Swiper 
           effect="coverflow" 
@@ -281,6 +290,10 @@ const ImageCarousel = ({ apiUrl, title }) => {
         )}
       </div>
     </section>
+    <button className="view-all-button-vertical" onClick={handleViewAll}>
+        View All
+      </button>
+    </div>
   );
 };
 
