@@ -159,14 +159,14 @@
 .wedding-section-title {
   text-align: center;
   font-size: 24px;
-  width: 100%; /* Ensure title takes full width */
+  /* width: 100%;  */
 }
 
 .view-all-button-vertical {
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translateY(-50%) rotate(90deg);
+  /* position: absolute; */
+  /* top: 50%; */
+  /* right: 0; */
+  /* transform: translateY(-50%) rotate(90deg); */
   background-color: transparent;
   color: #333;
   border: 1px solid #ccc;

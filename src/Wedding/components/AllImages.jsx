@@ -19,10 +19,12 @@ const AllImages = () => {
           }
           const processedImages = data.map((image) => ({
             name: image.name,
-            thumbnail: image.link.replace(".jpeg", "h.jpeg"),
+            thumbnail: image.link.replace(".jpeg", "m.jpeg"),
             fullSize: image.link.replace(".xxjpeg", "h.jpeg"),
           }));
+          
           setImages(processedImages);
+
         } catch (error) {
           console.error("Error fetching images:", error);
         }

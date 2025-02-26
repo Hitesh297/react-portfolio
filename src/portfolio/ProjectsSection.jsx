@@ -54,7 +54,7 @@ const ProjectsSection = () => {
             <div className="project-content">
               <div
                 className={`proj-image-container ${
-                  (index + 1) % 2 === 0 ? "right" : ""
+                  (index + 1) % 2 === 0 ? "project-overlap" : ""
                 }`}
               >
                 <a
@@ -67,7 +67,7 @@ const ProjectsSection = () => {
               </div>
               <div
                 className={`project-text ${
-                  (index + 1) % 2 === 0 ? "text-left" : "right text-right"
+                  (index + 1) % 2 === 0 ? "text-left" : "project-overlap text-right"
                 }`}
               >
                 <p className="project-head">Featured Project</p>

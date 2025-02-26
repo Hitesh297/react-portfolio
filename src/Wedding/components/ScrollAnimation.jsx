@@ -13,7 +13,7 @@ const ScrollAnimation = ({ brideImage, groomImage }) => {
       const config = {
         startPoint: window.innerHeight - window.innerHeight * 0.8,
         meetingPoint: window.innerHeight * 2,
-        endPoint: window.innerHeight * 3,
+        endPoint: window.innerHeight * 3.5,
         exitPoint: window.innerHeight * 4,
       };
 
