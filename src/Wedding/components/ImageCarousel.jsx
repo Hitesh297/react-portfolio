@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination, Navigation, Zoom } from "swiper/modules";
 import { openDB } from 'idb';
@@ -8,6 +8,12 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./ImageCarousel.css";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import PropTypes from 'prop-types';
+
+ImageCarousel.propTypes = {
+  apiUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
+};
 
 const ImageCarousel = ({ apiUrl, title }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);

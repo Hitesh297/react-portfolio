@@ -3,12 +3,12 @@ import React, { useState, useRef, useEffect } from "react";
 import AOS from "aos";
 //import 'aos/dist/aos.css';
 import "./WeddingApp.css";
-import GooglePhotoGallery from "./components/GooglePhotoGallery";
 import GoogleMap from "./components/GoogleMap";
 import ScrollAnimation from "./components/ScrollAnimation";
 import CountDownTimer from "./components/CountDownTimer";
 import YoutubeVideo from "./components/YoutubeVideo";
 import ImageCarousel from "./components/ImageCarousel";
+import PropTypes from "prop-types";
 
 function Header() {
   const [isLoading, setIsLoading] = useState(true);
@@ -57,6 +57,13 @@ function Header() {
     </header>
   );
 }
+
+Event.propTypes = {
+  title: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  animation: PropTypes.string.isRequired,
+};
 
 const Event = ({ title, time, description, animation }) => (
   <div className="wedding-event" data-aos={animation}>
