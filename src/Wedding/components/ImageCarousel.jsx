@@ -10,11 +10,6 @@ import "./ImageCarousel.css";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
 import PropTypes from 'prop-types';
 
-ImageCarousel.propTypes = {
-  apiUrl: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
-};
-
 const ImageCarousel = ({ apiUrl, title }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -305,6 +300,11 @@ const ImageCarousel = ({ apiUrl, title }) => {
     
     </div>
   );
+};
+
+ImageCarousel.propTypes = {
+  apiUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 export default ImageCarousel;

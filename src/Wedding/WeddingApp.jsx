@@ -58,13 +58,6 @@ function Header() {
   );
 }
 
-Event.propTypes = {
-  title: PropTypes.string.isRequired,
-  time: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  animation: PropTypes.string.isRequired,
-};
-
 const Event = ({ title, time, description, animation }) => (
   <div className="wedding-event" data-aos={animation}>
     <h3>{title}</h3>
@@ -178,5 +171,13 @@ const WeddingApp = () => {
     </div>
   );
 };
+
+Event.propTypes = {
+  title: PropTypes.string.isRequired,
+  time: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  animation: PropTypes.string.isRequired,
+};
+
 
 export default WeddingApp;
