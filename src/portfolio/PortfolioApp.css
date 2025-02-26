@@ -757,10 +757,10 @@ section {
   justify-content: flex-start;
 }
 
-/* .right {
+.project-overlap {
     order: 1;
     transform: translateX(-13%);
-} */
+}
 
 .project-details {
   background-color: var(--project-background);
@@ -1043,7 +1043,7 @@ footer {
     display: none;
   }
 
-  .right {
+  .project-overlap {
     order: 1;
     transform: translateX(0);
   }

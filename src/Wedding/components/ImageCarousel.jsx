@@ -219,10 +219,16 @@ const ImageCarousel = ({ apiUrl, title }) => {
 
   return (
     <div className="gallery-wrapper"> {/* Wrap the entire gallery */}
+    
     <section className="gallery-section">
+      
        <div className="title-container"> {/* Wrap title and button */}
       <h2 className="wedding-section-title">{title}</h2>
+      <button className="view-all-button-vertical" onClick={handleViewAll}>
+        View All
+      </button>
         </div>
+        
       <div className="carousel-container">
         <Swiper 
           effect="coverflow" 
@@ -243,7 +249,7 @@ const ImageCarousel = ({ apiUrl, title }) => {
             }
           }}
           coverflowEffect={{ rotate: 0, stretch: 100, depth: 300, modifier: 1, slideShadows: true }}
-          pagination={{ clickable: true }}
+          pagination={{ dynamicBullets: true }}
           modules={[EffectCoverflow, Pagination]}
           lazy="true"
           className="swiper-container"
@@ -290,9 +296,7 @@ const ImageCarousel = ({ apiUrl, title }) => {
         )}
       </div>
     </section>
-    <button className="view-all-button-vertical" onClick={handleViewAll}>
-        View All
-      </button>
+    
     </div>
   );
 };
