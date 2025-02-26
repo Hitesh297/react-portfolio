@@ -249,7 +249,7 @@ const ImageCarousel = ({ apiUrl, title }) => {
             }
           }}
           coverflowEffect={{ rotate: 0, stretch: 100, depth: 300, modifier: 1, slideShadows: true }}
-          pagination={{ dynamicBullets: true }}
+          pagination={{ type: 'fraction' }}
           modules={[EffectCoverflow, Pagination]}
           lazy="true"
           className="swiper-container"
