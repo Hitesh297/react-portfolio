@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { EffectCoverflow, Pagination, Navigation, Zoom } from "swiper/modules";
 import { openDB } from 'idb';
@@ -8,6 +8,12 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "./ImageCarousel.css";
 import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import PropTypes from 'prop-types';
+
+ImageCarousel.propTypes = {
+  apiUrl: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
+};
 
 const ImageCarousel = ({ apiUrl, title }) => {
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -249,7 +255,7 @@ const ImageCarousel = ({ apiUrl, title }) => {
             }
           }}
           coverflowEffect={{ rotate: 0, stretch: 100, depth: 300, modifier: 1, slideShadows: true }}
-          pagination={{ dynamicBullets: true }}
+          pagination={{ type: 'fraction' }}
           modules={[EffectCoverflow, Pagination]}
           lazy="true"
           className="swiper-container"

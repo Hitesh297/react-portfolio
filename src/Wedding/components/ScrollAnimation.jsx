@@ -13,8 +13,8 @@ const ScrollAnimation = ({ brideImage, groomImage }) => {
       const config = {
         startPoint: window.innerHeight - window.innerHeight * 0.8,
         meetingPoint: window.innerHeight * 2,
-        endPoint: window.innerHeight * 3.5,
-        exitPoint: window.innerHeight * 4,
+        endPoint: window.innerHeight * 3,
+        exitPoint: window.innerHeight * 4.5,
       };
 
       let newBrideX, newGroomX;
@@ -42,8 +42,8 @@ const ScrollAnimation = ({ brideImage, groomImage }) => {
         const progress =
           (scrollPosition - config.endPoint) /
           (config.exitPoint - config.endPoint);
-        newBrideX = -50 - progress * 100;
-        newGroomX = 50 + progress * 100;
+        newBrideX = -1 - progress * 100;
+        newGroomX = 1 + progress * 100;
       }
       // After exit
       else {
