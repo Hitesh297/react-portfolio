@@ -17,122 +17,62 @@ const ImageCarousel = ({ apiUrl, title }) => {
   const fullSizeRefs = useRef([]);
   const navigate = useNavigate(); // Initialize useNavigate
 
-  useEffect(() => {
-    const fetchImages = async () => {
-      try {
-        const response = await fetch(apiUrl);
-        const data = await response.json();
-        if (!response.ok) {
-          throw new Error(`Error occured while fetching data from ${apiUrl}. Response code : ${response.status}`);
-        }
-
-        const initialImages = data.map((image) => {
-          const thumbnailUrl = getThumbnailUrl(image.link);
-          const fullSizeUrl = getFullSizeUrl(image.link);
-          
-          return {
+    useEffect(() => {
+      const fetchImages = async () => {
+        try {
+          const response = await fetch(apiUrl);
+          const data = await response.json();
+          if (!response.ok) {
+            throw new Error(`Error occurred while fetching data from ${apiUrl}. Response code: ${response.status}`);
+          }
+    
+          const initialImages = data.map((image) => ({
             name: image.name,
-            thumbnail: thumbnailUrl,
-            fullSize: fullSizeUrl,
+            thumbnail: getThumbnailUrl(image.link),
+            fullSize: getFullSizeUrl(image.link),
             thumbnailLoaded: false,
             fullSizeLoaded: false,
-            // Track if URLs are the same for cache reuse
-            isSameImage: thumbnailUrl === fullSizeUrl
-          };
-        });
-
-        setImages(initialImages);
-
-        // Load images progressively
-        initialImages.forEach(async (image, index) => {
-          // If thumbnail and fullsize are the same, we only need to cache once
-          if (image.isSameImage) {
-            const cachedImage = await getImageFromIndexedDB(image.name);
-            if (cachedImage) {
-              setImages((prev) =>
-                prev.map((img, i) => (
-                  i === index 
-                    ? { 
-                        ...img, 
-                        thumbnail: cachedImage, 
-                        fullSize: cachedImage,
-                        thumbnailLoaded: true,
-                        fullSizeLoaded: true 
-                      } 
-                    : img
-                ))
-              );
-            } else {
-              const cachedUrl = await cacheImage(image.thumbnail, image.name);
-              setImages((prev) =>
-                prev.map((img, i) => (
-                  i === index 
-                    ? { 
-                        ...img, 
-                        thumbnail: cachedUrl, 
-                        fullSize: cachedUrl,
-                        thumbnailLoaded: true,
-                        fullSizeLoaded: true 
-                      } 
-                    : img
-                ))
-              );
+            isSameImage: getThumbnailUrl(image.link) === getFullSizeUrl(image.link),
+          }));
+    
+          setImages(initialImages);
+    
+          // Load images sequentially
+          for (let i = 0; i < initialImages.length; i++) {
+            const image = initialImages[i];
+    
+            // Load and cache thumbnail first
+            let thumbnailUrl = await getImageFromIndexedDB(`thumb_${image.name}`);
+            if (!thumbnailUrl) {
+              thumbnailUrl = await cacheImage(image.thumbnail, `thumb_${image.name}`);
             }
-          } else {
-            // Handle different thumbnail and fullsize URLs
-            const [cachedThumbnail, cachedFullSize] = await Promise.all([
-              getImageFromIndexedDB(`thumb_${image.name}`),
-              getImageFromIndexedDB(`full_${image.name}`)
-            ]);
-
-            // Update thumbnail
-            if (cachedThumbnail) {
-              setImages((prev) =>
-                prev.map((img, i) => (
-                  i === index 
-                    ? { ...img, thumbnail: cachedThumbnail, thumbnailLoaded: true } 
-                    : img
-                ))
-              );
-            } else {
-              const thumbnailUrl = await cacheImage(image.thumbnail, `thumb_${image.name}`);
-              setImages((prev) =>
-                prev.map((img, i) => (
-                  i === index 
-                    ? { ...img, thumbnail: thumbnailUrl, thumbnailLoaded: true } 
-                    : img
-                ))
-              );
+    
+            setImages((prev) =>
+              prev.map((img, index) =>
+                index === i ? { ...img, thumbnail: thumbnailUrl, thumbnailLoaded: true } : img
+              )
+            );
+    
+            // Load and cache full-size image (only after thumbnail loads)
+            let fullSizeUrl = await getImageFromIndexedDB(`full_${image.name}`);
+            if (!fullSizeUrl) {
+              fullSizeUrl = await cacheImage(image.fullSize, `full_${image.name}`);
             }
-
-            // Update fullsize
-            if (cachedFullSize) {
-              setImages((prev) =>
-                prev.map((img, i) => (
-                  i === index 
-                    ? { ...img, fullSize: cachedFullSize, fullSizeLoaded: true } 
-                    : img
-                ))
-              );
-            } else {
-              const fullSizeUrl = await cacheImage(image.fullSize, `full_${image.name}`);
-              setImages((prev) =>
-                prev.map((img, i) => (
-                  i === index 
-                    ? { ...img, fullSize: fullSizeUrl, fullSizeLoaded: true } 
-                    : img
-                ))
-              );
-            }
+    
+            setImages((prev) =>
+              prev.map((img, index) =>
+                index === i ? { ...img, fullSize: fullSizeUrl, fullSizeLoaded: true } : img
+              )
+            );
           }
-        });
-      } catch (error) {
-        console.error("Error fetching images:", error);
-      }
-    };
-
-    fetchImages();
-  }, [apiUrl]);
+        } catch (error) {
+          console.error("Error fetching images:", error);
+        }
+      };
+    
+      fetchImages();
+    }, [apiUrl]);
+    
 
   useEffect(() => {
     if (!isFullScreen) return;
