@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import "./AllImages.css"; // Create AllImages.css
+import "./AllImages.css";
 
 const AllImages = () => {
   const location = useLocation();
   const { apiUrl, title } = location.state || {};
   const [images, setImages] = useState([]);
+  const [loadedImages, setLoadedImages] = useState({});
   const [selectedImage, setSelectedImage] = useState(null);
   const [loading, setLoading] = useState(false);
   
@@ -17,19 +18,28 @@ const AllImages = () => {
           const cache = await caches.open('image-cache');
           const cachedResponse = await cache.match(apiUrl);
 
+          let imageData;
           if (cachedResponse) {
             const cachedData = await cachedResponse.json();
-            setImages(await processImageData(cachedData, cache));
+            imageData = processImageUrls(cachedData);
           } else {
             const response = await fetch(apiUrl);
-            const data = await response.json();
             if (!response.ok) {
               throw new Error(`Error fetching data: ${response.status}`);
             }
-
+            const data = await response.json();
             cache.put(apiUrl, new Response(JSON.stringify(data)));
-            setImages(await processImageData(data, cache));
+            imageData = processImageUrls(data);
           }
+          
+          setImages(imageData);
+          // Initialize loading states for each image
+          const initialLoadState = {};
+          imageData.forEach((img, index) => {
+            initialLoadState[index] = false;
+          });
+          setLoadedImages(initialLoadState);
+          
         } catch (error) {
           console.error("Error fetching images:", error);
         } finally {
@@ -41,27 +51,26 @@ const AllImages = () => {
     }
   }, [apiUrl]);
 
-  const processImageData = async (data, cache) => {
-    return Promise.all(data.map(async (image) => {
+  // Process image URLs without waiting for images to load
+  const processImageUrls = (data) => {
+    return data.map(image => {
       const thumbnailUrl = image.link.replace(".jpeg", "m.jpeg");
       const fullSizeUrl = image.link.replace(".xxjpeg", "h.jpeg");
-      
-      await cacheImage(thumbnailUrl, cache);
       
       return {
         name: image.name,
         thumbnail: thumbnailUrl,
         fullSize: fullSizeUrl,
       };
-    }));
+    });
   };
 
-  const cacheImage = async (imageUrl, cache) => {
-    const cachedResponse = await cache.match(imageUrl);
-    if (!cachedResponse) {
-      const response = await fetch(imageUrl, { mode: 'no-cors' });
-      cache.put(imageUrl, response);
-    }
+  // Handle individual image load completion
+  const handleImageLoad = (index) => {
+    setLoadedImages(prev => ({
+      ...prev,
+      [index]: true
+    }));
   };
 
   const handleThumbnailClick = (image) => {
@@ -72,19 +81,31 @@ const AllImages = () => {
     setSelectedImage(null);
   };
 
+  // Pre-fetch full size image when thumbnail is clicked
+  useEffect(() => {
+    if (selectedImage) {
+      const preloadImage = new Image();
+      preloadImage.src = selectedImage.fullSize;
+    }
+  }, [selectedImage]);
+
   return (
     <div className="all-images-container">
       <h2 className="wedding-section-title">{title}</h2>
-      {loading && <div className="loading-spinner">Loading...</div>}
+      {loading && images.length === 0 && <div className="loading-spinner">Loading images...</div>}
       <div className="thumbnails-grid">
         {images.map((image, index) => (
-          <img
-            key={index}
-            src={image.thumbnail}
-            alt={image.name}
-            className="thumbnail"
-            onClick={() => handleThumbnailClick(image)}
-          />
+          <div key={index} className="thumbnail-container">
+            {!loadedImages[index] && <div className="thumbnail-placeholder">Loading...</div>}
+            <img
+              src={image.thumbnail}
+              alt={image.name}
+              className={`thumbnail ${loadedImages[index] ? 'loaded' : 'loading'}`}
+              onClick={() => handleThumbnailClick(image)}
+              onLoad={() => handleImageLoad(index)}
+              loading="lazy"
+            />
+          </div>
         ))}
       </div>
       {selectedImage && (

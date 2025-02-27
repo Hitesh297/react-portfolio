@@ -1,45 +1,89 @@
 .all-images-container {
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .thumbnails-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-  .thumbnail {
-    width: 100%;
-    height: auto;
-    cursor: pointer;
-    object-fit: cover;
-    border-radius: 5px;
-  }
-  
-  .fullscreen-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .fullscreen-content {
-    max-width: 90%;
-    max-height: 90%;
-  }
-  
-  .fullscreen-image {
-    width: auto;
-    height: auto;
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.wedding-section-title {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2rem;
+}
+
+.loading-spinner {
+  text-align: center;
+  margin: 30px 0;
+  font-size: 1.2rem;
+}
+
+.thumbnails-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.thumbnail-container {
+  position: relative;
+  aspect-ratio: 3/2;
+  background-color: #f0f0f0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.thumbnail-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f0f0f0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.thumbnail.loading {
+  opacity: 0;
+}
+
+.thumbnail.loaded {
+  opacity: 1;
+}
+
+.thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.fullscreen-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.fullscreen-content {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.fullscreen-image {
+  max-width: 100%;
+  max-height: 90vh;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
