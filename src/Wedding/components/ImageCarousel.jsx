@@ -232,6 +232,7 @@ const ImageCarousel = ({ apiUrl, title }) => {
         
       <div className="carousel-container">
         <Swiper 
+
           effect="coverflow" 
           grabCursor 
           centeredSlides 
@@ -249,19 +250,21 @@ const ImageCarousel = ({ apiUrl, title }) => {
               spaceBetween: 40
             }
           }}
-          coverflowEffect={{ rotate: 0, stretch: 100, depth: 300, modifier: 1, slideShadows: true }}
+          coverflowEffect={{ rotate: 0, stretch: 100, depth: 200, modifier: 1, slideShadows: true }}
           pagination={{ type: 'fraction' }}
           modules={[EffectCoverflow, Pagination]}
           lazy="true"
           className="swiper-container"
+          
         >
           {images.map((image, index) => (
-            <SwiperSlide key={index} className="swiper-slide" onClick={() => openFullScreen(index)}>
+            <SwiperSlide key={index} className="swiper-slide" virtualIndex={index} onClick={() => openFullScreen(index)}>
               <img 
                 src={image.thumbnailLoaded ? image.thumbnail : ''} 
                 alt={image.name} 
                 className="slide-image" 
                 loading="lazy"
+                
               />
             </SwiperSlide>
           ))}
