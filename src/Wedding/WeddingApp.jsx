@@ -156,6 +156,8 @@ const WeddingApp = () => {
       <YoutubeVideo title="Pre Wedding Movie" videoUrl="https://www.youtube.com/embed/IJC3tqQtIPY?si=6fQukObxqhrg_V6O" />
       <YoutubeVideo title="Haldi Teaser" videoUrl="https://www.youtube.com/embed/tnIXEF-MYLM?si=sWEyItEVOMzRNxl_" />
       <YoutubeVideo title="DJ Teaser" videoUrl="https://www.youtube.com/embed/dQU9xmLYuDo?si=V5VE2h_HRQdUjxJt" />
+      <YoutubeVideo title="Wedding Highlight 1" videoUrl="https://www.youtube.com/embed/uc7PKx2zrpw?si=eFkfnoAU74As9JIH" />
+      <YoutubeVideo title="Wedding Highlight 2" videoUrl="https://www.youtube.com/embed/2DwlNFWObek?si=pU4N4rjrycDZCLLs" />
       <ScrollAnimation
         brideImage="/images/bride.png"
         groomImage="/images/groom.png"
