@@ -1,0 +1,253 @@
+.admin-add-blog-section {
+    margin: 0 auto;
+    padding: 50px 0;
+    max-width: 800px;
+    font-family: 'Inter', sans-serif;
+}
+
+.section-headings {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 40px;
+    font-family: 'Inter', sans-serif;
+    color: var(--primary-colour);
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.section-headings::before {
+    content: '';
+    margin-right: 10px;
+}
+
+.section-headings::after {
+    content: '';
+    display: block;
+    width: 300px;
+    height: 1px;
+    margin-left: 24px;
+    background-color: #233554;
+}
+
+.add-blog-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: var(--primary-colour);
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-group input {
+    padding: 12px;
+    border: 1px solid #233554;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--project-background);
+    color: var(--text-colour);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--secondary-colour);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* TipTap editor styles */
+.tiptap-editor {
+    background-color: var(--project-background);
+    border: 1px solid #233554;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tiptap-toolbar {
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    background-color: var(--project-background);
+    border-bottom: 1px solid #233554;
+}
+
+.tiptap-toolbar button {
+    padding: 8px 12px;
+    background: none;
+    border: 1px solid #233554;
+    border-radius: 4px;
+    color: var(--text-colour);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tiptap-toolbar button:hover {
+    background-color: var(--secondary-colour);
+    color: var(--background);
+}
+
+.tiptap-toolbar button.active {
+    background-color: var(--primary-colour);
+    color: var(--background);
+}
+
+.tiptap.ProseMirror {
+    padding: 16px;
+    min-height: 200px;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-colour);
+    font-size: 1rem;
+}
+
+.tiptap.ProseMirror:focus {
+    outline: none;
+}
+
+.tiptap p {
+    margin: 0 0 16px;
+}
+
+.tiptap h1, .tiptap h2 {
+    color: var(--primary-colour);
+    margin: 24px 0 16px;
+}
+
+.tiptap h1 {
+    font-size: 1.8rem;
+}
+
+.tiptap h2 {
+    font-size: 1.5rem;
+}
+
+.tiptap pre {
+    background-color: #282a36; /* Dracula theme */
+    padding: 12px;
+    border-radius: 4px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.95rem;
+    overflow-x: auto;
+}
+
+.tiptap code {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.tiptap ul, .tiptap ol {
+    margin: 16px 0;
+    padding-left: 24px;
+}
+
+.tiptap li {
+    margin: 8px 0;
+}
+
+.submit-button {
+    padding: 12px 24px;
+    background: var(--secondary-colour);
+    color: var(--background);
+    border: none;
+    border-radius: 20px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.submit-button:hover {
+    background-color: var(--primary-colour);
+}
+
+.submit-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.markdown-preview {
+    margin-top: 24px;
+    padding: 16px;
+    background-color: var(--project-background);
+    border-radius: 8px;
+    border: 1px solid #233554;
+}
+
+.markdown-preview h3 {
+    color: var(--primary-colour);
+    font-size: 1.2rem;
+    margin: 0 0 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.markdown-preview p {
+    color: var(--text-colour);
+    font-family: 'Inter', sans-serif;
+    margin: 0 0 16px;
+}
+
+.markdown-preview pre {
+    background-color: #282a36;
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.markdown-preview code {
+    font-family: 'Roboto Mono', monospace;
+}
+
+.success {
+    text-align: center;
+    color: var(--secondary-colour);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+.error {
+    text-align: center;
+    color: var(--text-colour);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+    .admin-add-blog-section {
+        padding: 0 50px;
+    }
+}
+
+@media screen and (max-width: 822px) {
+    .admin-add-blog-section {
+        padding: 0 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .admin-add-blog-section {
+        padding: 0 20px;
+    }
+    .form-group input,
+    .tiptap-editor {
+        font-size: 0.95rem;
+    }
+    .submit-button {
+        width: 100%;
+        align-self: stretch;
+    }
+    .tiptap-toolbar {
+        flex-wrap: wrap;
+    }
+}

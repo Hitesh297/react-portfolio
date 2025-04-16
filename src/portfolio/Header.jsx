@@ -49,10 +49,13 @@ class Header extends React.Component {
                 <a href="#contact">Contact</a>
               </li>
               <li>
+                <a href="/blogs">Blogs</a>
+              </li>
+              <li>
                 <DarkModeSwitch />
               </li>
             </ul>
-            
+
             <div className="resume-link">
               <a href="Resume.pdf">Resume</a>
             </div>
@@ -78,8 +81,8 @@ class Header extends React.Component {
                   <a href="#contact">Contact</a>
                 </li>
                 <li>
-                <DarkModeSwitch />
-              </li>
+                  <DarkModeSwitch />
+                </li>
               </ol>
               <a href="Resume.pdf" className="resume-link">
                 Resume
