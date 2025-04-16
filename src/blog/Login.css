@@ -1,0 +1,96 @@
+.login-section {
+    margin: 0 auto;
+    padding: 50px 0;
+    max-width: 1000px;
+    font-family: 'Inter', sans-serif;
+}
+
+.section-headings {
+    display: flex;
+    align-items: center;
+    margin: 10px 0 65px;
+    font-family: 'Roboto Mono', monospace;
+    color: var(--primary-colour);
+    font-size: 2rem;
+}
+
+.section-headings::before {
+    content: '06.';
+    margin-right: 10px;
+    color: var(--secondary-colour);
+    font-size: 1.5rem;
+}
+
+.section-headings::after {
+    content: '';
+    display: block;
+    width: 300px;
+    height: 1px;
+    margin-left: 24px;
+    background-color: #233554;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: var(--primary-colour);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.form-control {
+    width: 100%;
+    color: var(--secondary-colour);
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--project-background);
+    padding: 6px 12px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+}
+
+.form-control:focus {
+    outline: none;
+    border: 1px solid var(--secondary-colour);
+    box-shadow: 0 0 5px var(--secondary-colour);
+}
+
+.form-control::placeholder {
+    color: var(--text-colour);
+}
+
+.submit-button {
+    border: 1px solid var(--secondary-colour);
+    border-radius: 4px;
+    color: var(--secondary-colour);
+    padding: 0.6rem 1rem;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: var(--secondary-colour);
+    color: var(--background);
+}
+
+.error {
+    color: var(--text-colour);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1rem;
+    text-align: center;
+}

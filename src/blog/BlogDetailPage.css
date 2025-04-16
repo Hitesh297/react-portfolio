@@ -1,0 +1,157 @@
+.blog-detail-article {
+    margin: 0 auto;
+    padding: 50px 0;
+    max-width: 800px; /* Optimal for reading */
+    font-family: 'Inter', sans-serif;
+}
+
+.blog-detail-title {
+    color: var(--primary-colour);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 24px;
+    font-family: 'Inter', sans-serif;
+}
+
+.blog-detail-image-container {
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+    margin-bottom: 24px;
+}
+
+.blog-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.blog-meta {
+    color: var(--text-colour);
+    font-size: 0.9rem;
+    font-family: 'Roboto Mono', monospace;
+    margin: 0 0 32px;
+    text-align: center;
+}
+
+.blog-content {
+    color: var(--text-colour);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-family: 'Inter', sans-serif;
+}
+
+.blog-content p {
+    margin: 0 0 24px;
+}
+
+.blog-content h2,
+.blog-content h3,
+.blog-content h4 {
+    color: var(--primary-colour);
+    margin: 32px 0 16px;
+    font-family: 'Inter', sans-serif;
+}
+
+.blog-content h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.blog-content h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.blog-content h4 {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.blog-content code {
+    background-color: var(--project-background);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.95rem;
+}
+
+.blog-content pre {
+    background-color: #282a36; /* Dracula background */
+    padding: 16px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 24px 0;
+}
+
+.blog-content pre code {
+    background: none;
+    padding: 0;
+}
+
+.back-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--secondary-colour);
+    color: var(--background);
+    border-radius: 20px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    text-decoration: none;
+    margin-top: 32px;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: var(--primary-colour);
+}
+
+.loader {
+    text-align: center;
+    color: var(--secondary-colour);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.2rem;
+    margin-top: 50px;
+}
+
+.error {
+    text-align: center;
+    color: var(--text-colour);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 1.2rem;
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 1024px) {
+    .blog-detail-article {
+        padding: 0 50px;
+    }
+}
+
+@media screen and (max-width: 822px) {
+    .blog-detail-article {
+        padding: 0 30px;
+    }
+    .blog-detail-title {
+        font-size: 2rem;
+    }
+    .blog-detail-image-container {
+        max-height: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .blog-detail-article {
+        padding: 0 20px;
+    }
+    .blog-detail-title {
+        font-size: 1.8rem;
+    }
+    .blog-detail-image-container {
+        max-height: 300px;
+    }
+    .blog-content {
+        font-size: 1rem;
+    }
+}

@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "@tiptap/extension-code-block": "^2.11.7",
+    "@tiptap/react": "^2.11.7",
+    "@tiptap/starter-kit": "^2.11.7",
     "@vercel/analytics": "^1.4.1",
     "aos": "^2.3.4",
     "axios": "^1.7.9",
@@ -19,7 +22,10 @@
     "prop-types": "^15.8.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-markdown": "^10.1.0",
+    "react-quill": "^2.0.0",
     "react-router-dom": "^7.1.1",
+    "react-syntax-highlighter": "^15.6.1",
     "swiper": "^11.2.4",
     "typed.js": "^2.1.0"
   },

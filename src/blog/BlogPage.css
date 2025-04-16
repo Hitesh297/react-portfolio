@@ -1,0 +1,127 @@
+.blog-section {
+  margin: 0 auto;
+  padding: 50px 0;
+  max-width: 1000px; /* Matches --section-width */
+  font-family: "Inter", sans-serif;
+}
+
+.section-headings {
+  display: flex;
+  align-items: center;
+  margin: 10px 0 40px;
+  font-family: "Inter", sans-serif;
+  color: var(--primary-colour);
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.section-headings::before {
+  content: "";
+  margin-right: 10px;
+}
+
+.section-headings::after {
+  content: "";
+  display: block;
+  width: 300px;
+  height: 1px;
+  margin-left: 24px;
+  background-color: #233554;
+}
+
+.blog-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0 25px 0 25px;
+  gap: 15px;
+  align-items: stretch;
+  place-content: stretch space-between;
+}
+
+.blog-card {
+  background-color: var(--project-background);
+  border-radius: 8px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex-basis: 24%;
+  flex-grow: 1;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.blog-image-container {
+  width: 100%;
+  height: 150px;
+  overflow: hidden;
+}
+
+.blog-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.blog-details {
+  padding: 16px;
+}
+
+.blog-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--primary-colour);
+  margin: 0 0 8px;
+}
+
+.blog-snippet {
+  font-size: 0.9rem;
+  color: var(--text-colour);
+  margin: 0 0 8px;
+  line-height: 1.4;
+}
+
+.blog-meta {
+  font-size: 0.8rem;
+  color: var(--text-colour);
+  font-family: "Roboto Mono", monospace;
+  margin: 0;
+}
+
+.loader {
+  text-align: center;
+  color: var(--secondary-colour);
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.2rem;
+  margin-top: 50px;
+}
+
+.error {
+  text-align: center;
+  color: var(--text-colour);
+  font-family: "Roboto Mono", monospace;
+  font-size: 1.2rem;
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 822px) {
+  .blog-section {
+    padding: 0 70px;
+  }
+  .blog-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .blog-section {
+    padding: 0 40px;
+  }
+}
