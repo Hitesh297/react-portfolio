@@ -30,7 +30,7 @@
     background-color: #233554;
 }
 
-.blog-list {
+/* .blog-list {
     display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -39,9 +39,9 @@
   gap: 15px;
   align-items: stretch;
   place-content: stretch space-between;
-}
+} */
 
-.blog-card {
+.blog1-card {
     background-color: var(--project-background);
   border-radius: 8px;
   overflow: hidden;
@@ -53,7 +53,7 @@
   flex-grow: 1;
 }
 
-.blog-card:hover {
+.blog-card1:hover {
     box-shadow: 0 10px 30px 5px rgba(0, 0, 0, 0.7);
     transform: translateY(-5px);
 }

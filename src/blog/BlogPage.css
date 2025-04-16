@@ -48,7 +48,7 @@
   color: inherit;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  flex-basis: 24%;
+  flex-basis: 300px;
   flex-grow: 1;
 }
 
@@ -112,16 +112,11 @@
 }
 
 @media screen and (max-width: 822px) {
-  .blog-section {
-    padding: 0 70px;
-  }
-  .blog-list {
-    grid-template-columns: 1fr;
-  }
+
 }
 
 @media (max-width: 480px) {
   .blog-section {
-    padding: 0 40px;
+    padding: 0 14px;
   }
 }

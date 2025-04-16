@@ -81,6 +81,9 @@ class Header extends React.Component {
                   <a href="#contact">Contact</a>
                 </li>
                 <li>
+                  <a href="/blogs">Blogs</a>
+                </li>
+                <li>
                   <DarkModeSwitch />
                 </li>
               </ol>
