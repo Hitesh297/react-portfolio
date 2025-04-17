@@ -45,7 +45,7 @@ const BlogPage = () => {
     }, []);
 
     if (loading) {
-        return <div className="loader">Loading...</div>;
+        return <div className="data-loader">Loading...</div>;
     }
 
     if (error) {
@@ -53,6 +53,7 @@ const BlogPage = () => {
     }
 
     return (
+        <>
         <section className="blog-section">
             <h2 className="section-headings">Blogs</h2>
             <div className="blog-list">
@@ -82,6 +83,7 @@ const BlogPage = () => {
                 )}
             </div>
         </section>
+        </>
     );
 };
 

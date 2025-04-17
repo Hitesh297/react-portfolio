@@ -25,7 +25,7 @@
   --dark-slate: #495670;
   --project-background: #e6e6e9;
   --primary-colour: #22577a;
-  --text-colour: #77858f;
+  --text-colour: #4b4b4b;
   --switch-background: #ccc;
   --switch-thumb-color: #ffffff;
   --scrollbar: thin;
@@ -80,6 +80,13 @@ html {
   fill: none;
 }
 
+#loader.no-animation {
+  display: none;
+  animation: none; /* Disable animation */
+  -webkit-animation: none;
+  -moz-animation: none;
+}
+
 #loader {
   position: fixed;
   top: 0;
@@ -123,6 +130,13 @@ html {
   font-size: 60px;
 }
 
+#logo-svg text.no-animation {
+  animation: none; 
+  -webkit-animation: none;
+  -moz-animation: none;
+  opacity: 1;
+}
+
 @keyframes fadein {
   from {
     opacity: 0;
@@ -153,6 +167,15 @@ html {
 
 #logo-svg {
   transform: translate(calc(50vw - 88px), calc(50vh - 50px));
+}
+
+#logo-svg.no-animation {
+  animation: none; /* Disable animation */
+  -webkit-animation: none;
+  -moz-animation: none;
+  /* Set the final state of the animation */
+  transform: translate(0, 0); /* Adjust to the final position after goinitial */
+  width: 40px;
 }
 
 @keyframes goinitial {
