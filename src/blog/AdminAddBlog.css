@@ -15,10 +15,6 @@
     font-weight: 600;
 }
 
-.section-headings::before {
-    content: '';
-    margin-right: 10px;
-}
 
 .section-headings::after {
     content: '';

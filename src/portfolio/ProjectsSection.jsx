@@ -34,7 +34,7 @@ const ProjectsSection = () => {
 
   return (
     <section id="projects">
-      <h2 className="section-headings">Projects</h2>
+      <h2 className="portfolio-section-headings">Projects</h2>
       {/* <?php
   $projectsQuery = 'SELECT *
                   FROM projects

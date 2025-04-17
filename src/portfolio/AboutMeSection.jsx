@@ -49,7 +49,7 @@ const AboutMeSection = () => {
 
   return (
     <section id="aboutme">
-      <h2 className="section-headings">About Me</h2>
+      <h2 className="portfolio-section-headings">About Me</h2>
       <div className="aboutme-content reveal">
         <div id="aboutme-text">
           <div dangerouslySetInnerHTML={{ __html: content }}></div>

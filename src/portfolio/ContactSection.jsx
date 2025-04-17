@@ -24,7 +24,7 @@ const ContactSection = () => {
   };
   return (
     <section id="contact">
-      <h2 className="section-headings">Contact</h2>
+      <h2 className="portfolio-section-headings">Contact</h2>
       <div className="reveal" id="contact-content">
         <form ref={form} id="contact-form" method="post" onSubmit={sendEmail}>
           <p id="contact-message">Have a question or want to work together? </p>
