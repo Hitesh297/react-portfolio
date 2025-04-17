@@ -95,13 +95,18 @@
   margin: 0;
 }
 
-.loader {
-  text-align: center;
-  color: var(--secondary-colour);
-  font-family: "Roboto Mono", monospace;
-  font-size: 1.2rem;
-  margin-top: 50px;
-}
+.data-loader {
+    text-align: center;
+    color: var(--secondary-colour);
+    font-family: "Roboto Mono", monospace;
+    font-size: 1.2rem;
+    position: relative; /* Ensure loader is positioned relative to its container */
+    z-index: 10; /* Ensure loader is above other content but below navbar if needed */
+    min-height: 100vh; /* Ensure loader takes full viewport height for centering */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Center loader vertically and horizontally */
+  }
 
 .error {
   text-align: center;

@@ -95,13 +95,6 @@
     color: var(--background);
 }
 
-.loader {
-    text-align: center;
-    color: var(--secondary-colour);
-    font-family: 'Roboto Mono', monospace;
-    font-size: 1.2rem;
-    margin-top: 50px;
-}
 
 .error {
     text-align: center;

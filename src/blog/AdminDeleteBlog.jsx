@@ -46,7 +46,7 @@ const AdminDeleteBlog = () => {
   };
 
   if (loading) {
-    return <div className="loader">Loading...</div>;
+    return <div className=".data-loader">Loading...</div>;
   }
 
   if (error) {

@@ -1,11 +1,12 @@
-import Header from "./Header";
 import LeftPanel from "./LeftPanel";
 import Main from "../components/Main";
 import RightPanel from "./RightPanel";
 import React from "react";
+import { useLocation } from "react-router-dom";
 import "./PortfolioApp.css";
 
 const PortfolioApp = () => {
+  const location = useLocation();
   React.useEffect(() => {
     //handle events for right menu
     window.onload = function () {
@@ -58,10 +59,19 @@ const PortfolioApp = () => {
         }
       };
     };
-  }, []);
+
+    if (location.hash) {
+      const element = document.querySelector(location.hash);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  }, [location.hash]);
+
+  
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <LeftPanel />
       <RightPanel />
       <Main />
