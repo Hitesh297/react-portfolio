@@ -8,11 +8,29 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const token = localStorage.getItem('token');
         if (token) {
-            navigate('/blogs', { replace: true });
+            axios
+                .get('https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com/api/auth/verify', {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                })
+                .then(() => {
+                    navigate('/blogs', { replace: true });
+                })
+                .catch(() => {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('isAdmin');
+                })
+                .finally(() => {
+                    setIsLoading(false);
+                });
+        } else {
+            setIsLoading(false);
         }
     }, [navigate]);
 
@@ -30,6 +48,10 @@ const Login = () => {
             setError('Invalid credentials.');
         }
     };
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <section className="login-section">
