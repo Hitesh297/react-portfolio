@@ -10,6 +10,7 @@ const PortfolioApp = () => {
   React.useEffect(() => {
     //handle events for right menu
     window.onload = function () {
+
       //var hamburger = document.getElementById("hamburger");
       var rightmenu = document.getElementById("right-menu");
       var rightmenuitems = document.querySelectorAll("#right-menu ol a");
@@ -66,6 +67,8 @@ const PortfolioApp = () => {
         element.scrollIntoView({ behavior: "smooth" });
       }
     }
+
+   
   }, [location.hash]);
 
   

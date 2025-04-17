@@ -35,7 +35,7 @@ const SkillsSection = () => {
   return (
     <section id="skills">
       <div id="credential-details">
-        <h2 className="section-headings">Skills</h2>
+        <h2 className="portfolio-section-headings">Skills</h2>
         <ul id="skills-list" className="reveal">
           {skills.map((skill) => (
             <li

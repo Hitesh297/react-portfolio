@@ -14,12 +14,7 @@
     font-size: 2rem;
 }
 
-.section-headings::before {
-    content: '06.';
-    margin-right: 10px;
-    color: var(--secondary-colour);
-    font-size: 1.5rem;
-}
+
 
 .section-headings::after {
     content: '';

@@ -572,14 +572,14 @@ section {
 }
 
 /*style section heading*/
-.section-headings {
+.portfolio-section-headings {
   display: flex;
   align-items: center;
   margin: 10px 0px 65px;
   font-family: ocr, monospace;
 }
 
-.section-headings::before {
+.portfolio-section-headings::before {
   position: relative;
   counter-increment: section 1;
   content: "0" counter(section) ".";
@@ -590,7 +590,7 @@ section {
   font-weight: 400;
 }
 
-.section-headings::after {
+.portfolio-section-headings::after {
   content: "";
   display: block;
   position: relative;

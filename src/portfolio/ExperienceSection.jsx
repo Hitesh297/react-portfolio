@@ -67,7 +67,7 @@ const ExperienceSection = () => {
 
   return (
     <section id="experience">
-      <h2 className="section-headings">Experience</h2>
+      <h2 className="portfolio-section-headings">Experience</h2>
       <div className="reveal" id="experience-content">
         <div id="company-list">
           {experiences.map((experience, index) => (

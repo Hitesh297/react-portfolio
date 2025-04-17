@@ -1,5 +1,5 @@
 .blog-section {
-  margin: 0 auto;
+  margin: 55px auto 0 auto;
   padding: 50px 0;
   max-width: 1000px; /* Matches --section-width */
   font-family: "Inter", sans-serif;
@@ -15,10 +15,6 @@
   font-weight: 600;
 }
 
-.section-headings::before {
-  content: "";
-  margin-right: 10px;
-}
 
 .section-headings::after {
   content: "";
