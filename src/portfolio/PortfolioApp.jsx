@@ -68,6 +68,19 @@ const PortfolioApp = () => {
       }
     }
 
+    const pingServer = async () => {
+      try {
+        const response = await fetch('https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com/api/health/ping');
+        const data = await response.json();
+        console.log('Ping success:', data);
+      } catch (error) {
+        console.error('Ping error:', error);
+      }
+    };
+  
+    // Call the async function
+    pingServer();
+
    
   }, [location.hash]);
 
