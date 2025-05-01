@@ -33,6 +33,7 @@ Welcome to the source code of my personal portfolio website, built using **React
 
 ### 💍 Wedding Page Module
 - A unique addition to the portfolio website
+- **Live Page:** [https://www.hiteshpatel.dev/wedding](https://www.hiteshpatel.dev/wedding)
 - **Features:**
   - **Browser caching** for faster image loading and offline access
   - Uses **Google Apps Script** to temporarily store data in memory
