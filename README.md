@@ -1,6 +1,7 @@
-# 🌐 React Portfolio – <a href="https://www.hiteshpatel.dev" target="_blank" rel="noopener noreferrer">hiteshpatel.dev</a>
 
-Welcome to the source code of my personal portfolio website, built using **React.js** and hosted at <a href="https://www.hiteshpatel.dev" target="_blank" rel="noopener noreferrer">https://www.hiteshpatel.dev</a>. This modern, responsive site showcases my projects, blog, and a special wedding module.
+# 🌐 React Portfolio – <a href="https://www.hiteshpatel.dev">hiteshpatel.dev</a>
+
+Welcome to the source code of my personal portfolio website, built using **React.js** and hosted at <a href="https://www.hiteshpatel.dev">https://www.hiteshpatel.dev</a>. This modern, responsive site showcases my projects, blog, and a special wedding module.
 
 ---
 
@@ -8,7 +9,7 @@ Welcome to the source code of my personal portfolio website, built using **React
 
 ### 🖥️ Frontend (React.js)
 - Developed using **React** with clean, component-based architecture.
-- Hosted at: <a href="https://www.hiteshpatel.dev" target="_blank" rel="noopener noreferrer">https://www.hiteshpatel.dev</a>
+- Hosted at: <a href="https://www.hiteshpatel.dev">https://www.hiteshpatel.dev</a>
 
 ---
 
@@ -16,8 +17,8 @@ Welcome to the source code of my personal portfolio website, built using **React
 - A full-featured web app and RESTful API for managing content dynamically.
 - Built with **Laravel** and **Blade Templates**
 - Features: Portfolio & blog management, image uploads, form submissions
-- **GitHub Repo:** <a href="https://github.com/Hitesh297/laravel-admin-CMS.git" target="_blank" rel="noopener noreferrer">laravel-admin-CMS</a>  
-- **Live Demo:** <a href="https://hiteshpateladmin.herokuapp.com" target="_blank" rel="noopener noreferrer">Admin Panel Hosted on Heroku</a>
+- **GitHub Repo:** <a href="https://github.com/Hitesh297/laravel-admin-CMS.git">laravel-admin-CMS</a>  
+- **Live Demo:** <a href="https://hiteshpateladmin.herokuapp.com">Admin Panel Hosted on Heroku</a>
 
 ---
 
@@ -25,14 +26,14 @@ Welcome to the source code of my personal portfolio website, built using **React
 - A separate backend service powering the Blog module via **RESTful API**
 - Built using **.NET Core** with full CRUD capabilities and **JWT-based authentication**
 - Used for serving dynamic blog content to the portfolio frontend
-- **GitHub Repo:** <a href="https://github.com/Hitesh297/blog-api.git" target="_blank" rel="noopener noreferrer">blog-api</a>  
-- **API Endpoint:** <a href="https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com" target="_blank" rel="noopener noreferrer">https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com</a>
+- **GitHub Repo:** <a href="https://github.com/Hitesh297/blog-api.git">blog-api</a>  
+- **API Endpoint:** <a href="https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com/api/health/ping">https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com/api/health/ping</a>
 
 ---
 
 ### 💍 Wedding Page Module
 - A unique addition to the portfolio website
-- **Live Page:** <a href="https://www.hiteshpatel.dev/wedding" target="_blank" rel="noopener noreferrer">https://www.hiteshpatel.dev/wedding</a>
+- **Live Page:** <a href="https://www.hiteshpatel.dev/wedding">https://www.hiteshpatel.dev/wedding</a>
 - **Features:**
   - **Browser caching** for faster image loading and offline access
   - Uses **Google Apps Script** to temporarily store data in memory
@@ -55,9 +56,9 @@ Welcome to the source code of my personal portfolio website, built using **React
 
 ## 🚀 Live Demo
 
-- **Portfolio:** <a href="https://www.hiteshpatel.dev" target="_blank" rel="noopener noreferrer">https://www.hiteshpatel.dev</a>
-- **Admin Panel:** <a href="https://hiteshpateladmin.herokuapp.com" target="_blank" rel="noopener noreferrer">https://hiteshpateladmin.herokuapp.com</a>
-- **Blog API:** <a href="https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com" target="_blank" rel="noopener noreferrer">https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com</a>
+- **Portfolio:** <a href="https://www.hiteshpatel.dev">https://www.hiteshpatel.dev</a>
+- **Admin Panel:** <a href="https://hiteshpateladmin.herokuapp.com">https://hiteshpateladmin.herokuapp.com</a>
+- **Blog API:** <a href="https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com/api/health/ping">https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com/api/health/ping</a>
 
 ---
 
