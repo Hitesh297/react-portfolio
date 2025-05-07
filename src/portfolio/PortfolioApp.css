@@ -969,7 +969,7 @@ section {
   color: var(--text-colour);
 }
 
-#submit-button {
+.styled-button {
   border: 1px solid var(--secondary-colour);
   border-radius: 4px;
   text-decoration: none;
@@ -980,9 +980,13 @@ section {
   background-color: transparent;
 }
 
-#submit-button:hover {
+.styled-button:hover {
   background-color: #233554;
   cursor: pointer;
+}
+.styled-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 #contact-form {
@@ -1119,4 +1123,9 @@ footer {
   #experience-content {
     flex-wrap: wrap;
   }
+
+  .styled-button {
+    width: 100%;
+    align-self: stretch;
+}
 }

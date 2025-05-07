@@ -70,6 +70,10 @@
   padding: 16px;
 }
 
+.blog-details a{
+  text-decoration: none;
+}
+
 .blog-title {
   font-size: 1.25rem;
   font-weight: 600;

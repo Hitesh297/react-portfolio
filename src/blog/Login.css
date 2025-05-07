@@ -67,22 +67,6 @@
     color: var(--text-colour);
 }
 
-.submit-button {
-    border: 1px solid var(--secondary-colour);
-    border-radius: 4px;
-    color: var(--secondary-colour);
-    padding: 0.6rem 1rem;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 1rem;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.submit-button:hover {
-    background-color: var(--secondary-colour);
-    color: var(--background);
-}
-
 .error {
     color: var(--text-colour);
     font-family: 'Roboto Mono', monospace;

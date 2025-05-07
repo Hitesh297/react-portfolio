@@ -10,6 +10,7 @@ import AdminDeleteBlog from "./blog/AdminDeleteBlog";
 import Login from "./blog/Login";
 import BlogDetailPage from "./blog/BlogDetailPage";
 import { LayoutWithNavbar } from "./portfolio/Header";
+import AdminEditBlog from "./blog/AdminEditBlog";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/blogs" element={<BlogPage />} />
           <Route path="/blogs/:id" element={<BlogDetailPage />} />
           <Route path="/add-blog" element={<AdminAddBlog />} />
+          <Route path="/edit-blog/:id" element={<AdminEditBlog />} />
           <Route path="/delete-blog" element={<AdminDeleteBlog />} />
           <Route path="/all-images" element={<AllImages />} />
           <Route path="/login" element={<Login />} />

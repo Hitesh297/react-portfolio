@@ -52,7 +52,7 @@ const ContactSection = () => {
             name="message"
             required
           ></textarea>
-          <input id="submit-button" type="submit" value="Submit" />
+          <input className="styled-button" type="submit" value="Submit" />
         </form>
       </div>
     </section>

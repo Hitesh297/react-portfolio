@@ -149,28 +149,6 @@
     margin: 8px 0;
 }
 
-.submit-button {
-    padding: 12px 24px;
-    background: var(--secondary-colour);
-    color: var(--background);
-    border: none;
-    border-radius: 20px;
-    font-family: 'Roboto Mono', monospace;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    align-self: flex-start;
-}
-
-.submit-button:hover {
-    background-color: var(--primary-colour);
-}
-
-.submit-button:disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
-}
-
 .markdown-preview {
     margin-top: 24px;
     padding: 16px;
@@ -238,10 +216,6 @@
     .form-group input,
     .tiptap-editor {
         font-size: 0.95rem;
-    }
-    .submit-button {
-        width: 100%;
-        align-self: stretch;
     }
     .tiptap-toolbar {
         flex-wrap: wrap;
