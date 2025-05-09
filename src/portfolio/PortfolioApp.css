@@ -234,7 +234,7 @@ p {
   align-items: center;
 }
 
-ul {
+.nav-links ul,#left ul, #skills ul {
   list-style-type: none;
   display: flex;
   align-items: center;
@@ -650,6 +650,10 @@ section {
   margin: 0;
 }
 
+.credentials-list {
+  list-style: none;
+}
+
 #credential-details {
   margin-top: 4rem;
 }
@@ -721,6 +725,7 @@ section {
 #project-list {
   display: block;
   padding: 0;
+  list-style: none;
 }
 
 .project-list-item {

@@ -32,18 +32,7 @@ function App() {
         <Route path="/wedding" element={<WeddingApp />} />
       </Routes>
     </Router>
-    // <Router>
-    //   <Routes>
-    //     <Route path="/" element={<PortfolioApp />} />
-    //     <Route path="/blogs" element={<BlogPage />} />
-    //     <Route path="/blogs/:id" element={<BlogDetailPage />} />
-    //     <Route path="/add-blog" element={<AdminAddBlog />} />
-    //     <Route path="/delete-blog" element={<AdminDeleteBlog />} />
-    //     <Route path="/wedding" element={<WeddingApp />} />
-    //     <Route path="/all-images" element={<AllImages />} />
-    //     <Route path="/login" element={<Login />} />
-    //   </Routes>
-    // </Router>
+
   )
 }
 

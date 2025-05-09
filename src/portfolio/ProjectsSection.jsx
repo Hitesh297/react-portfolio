@@ -35,18 +35,6 @@ const ProjectsSection = () => {
   return (
     <section id="projects">
       <h2 className="portfolio-section-headings">Projects</h2>
-      {/* <?php
-  $projectsQuery = 'SELECT *
-                  FROM projects
-                  ORDER BY sequence';
-  $projects = mysqli_query($connect, $projectsQuery);
-  $projectsarray = array();
-
-  while ($project = mysqli_fetch_assoc($projects)) {
-      $projectsarray[] = $project;
-  }
-
-  ?> */}
       <ul className="reveal" id="project-list">
         {/* <?php for ($i = 0; $i < count($projectsarray); $i++) : ?> */}
         {projects.map((project, index) => (

@@ -3,6 +3,7 @@ import Hamburger from "./Hamburger";
 import DarkModeSwitch from "../components/DarkModeSwitch/DarkModeSwitch";
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { useMemo } from "react";
+import Footer from "./Footer";
 
 function Header() {
 
@@ -128,6 +129,7 @@ function Header() {
       <div>
         {!hideNavbar && <Header />} {/* Conditionally render Navbar */}
         <Outlet /> {/* Render child routes */}
+        <Footer />
       </div>
     );
   }
