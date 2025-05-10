@@ -5,6 +5,10 @@
     font-family: 'Inter', sans-serif;
 }
 
+.blog-detail-head {
+    padding-top: 10vh;
+}
+
 .blog-detail-title {
     color: var(--primary-colour);
     font-size: 2.5rem;
