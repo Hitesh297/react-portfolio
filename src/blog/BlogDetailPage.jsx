@@ -40,7 +40,7 @@ const BlogDetailPage = () => {
 
     return (
         <article className="blog-detail-article">
-            <header>
+            <div className='blog-detail-head'>
                 <h1 className="blog-detail-title">{blog.title}</h1>
                 <div className="blog-detail-image-container">
                     <img
@@ -52,7 +52,7 @@ const BlogDetailPage = () => {
                 <p className="blog-meta">
                     By {blog.author} | {new Date(blog.createdAt).toLocaleDateString()}
                 </p>
-            </header>
+            </div>
             <section className="blog-content">
                 <ReactMarkdown
                     components={{
