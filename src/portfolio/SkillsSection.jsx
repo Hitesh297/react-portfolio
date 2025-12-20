@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import axiosRetry from "axios-retry";
+import { API_BASE_URL } from "../config/api";
 
 const SkillsSection = () => {
   const [skills, setSkills] = useState([]);
@@ -19,10 +20,8 @@ const SkillsSection = () => {
   });
 
   useEffect(() => {
-    axios({
-      url: "https://hiteshpateladmin.herokuapp.com/api/skills",
-      method: "GET",
-    }).then((res) => {
+    axios.get(`${API_BASE_URL}/api/skills`)
+      .then((res) => {
       //   console.log(res.data);
       var responselist = res.data;
 
@@ -42,7 +41,7 @@ const SkillsSection = () => {
               key={skill.id}
               dangerouslySetInnerHTML={{
                 __html:
-                  skill.fontawesomeHTML +
+                  skill.fontAwesomeHTML +
                   "<h3>" +
                   skill.type +
                   "</h3>" +

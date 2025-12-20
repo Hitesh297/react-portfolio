@@ -20,7 +20,7 @@ const ProjectsSection = () => {
 
   useEffect(() => {
     axios({
-      url: "https://hiteshpateladmin.herokuapp.com/api/projects",
+      url: "http://127.0.0.1:8000/api/projects",
       method: "GET",
     }).then((res) => {
       //   console.log(res.data);
