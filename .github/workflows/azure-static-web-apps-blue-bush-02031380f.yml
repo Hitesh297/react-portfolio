@@ -3,10 +3,12 @@ name: Azure Static Web Apps CI/CD
 on:
   push:
     branches:
+      - main
       - feature/azure-migrate
   pull_request:
     types: [opened, synchronize, reopened, closed]
     branches:
+      - main
       - feature/azure-migrate
 
 jobs:
