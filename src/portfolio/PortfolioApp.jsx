@@ -79,7 +79,7 @@ const PortfolioApp = () => {
     };
   
     // Call the async function
-    pingServer();
+    //pingServer();
 
    
   }, [location.hash]);

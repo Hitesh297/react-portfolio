@@ -20,7 +20,7 @@ const ExperienceSection = () => {
 
   useEffect(() => {
     axios({
-      url: "https://hiteshpateladmin.herokuapp.com/api/experiences",
+      url: "http://127.0.0.1:8000/api/experiences",
       method: "GET",
     }).then((res) => {
       //   console.log(res.data);

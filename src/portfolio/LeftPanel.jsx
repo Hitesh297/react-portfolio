@@ -20,7 +20,7 @@ export const LeftPanel = () => {
 
   useEffect(() => {
     axios({
-      url: "https://hiteshpateladmin.herokuapp.com/api/socialmedia",
+      url: "http://127.0.0.1:8000/api/socialmedia",
       method: "GET",
     }).then((res) => {
       var responselist = res.data;
