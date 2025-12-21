@@ -9,6 +9,9 @@
     "lint": "eslint .",
     "preview": "vite preview"
   },
+  "engines": {
+  "node": ">=20"
+  },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@tiptap/extension-code-block": "^2.11.7",
