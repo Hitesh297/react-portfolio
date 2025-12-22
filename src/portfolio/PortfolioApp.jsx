@@ -7,82 +7,102 @@ import "./PortfolioApp.css";
 
 const PortfolioApp = () => {
   const location = useLocation();
+  // ---- Right menu toggle ----
   React.useEffect(() => {
-    //handle events for right menu
-    window.onload = function () {
+    const rightmenu = document.getElementById("right-menu");
+    const hamburgericon = document.getElementById("hamburger-icon");
+    const closeicon = document.getElementById("close-icon");
+    const rightmenuitems = document.querySelectorAll("#right-menu ol a");
 
-      //var hamburger = document.getElementById("hamburger");
-      var rightmenu = document.getElementById("right-menu");
-      var rightmenuitems = document.querySelectorAll("#right-menu ol a");
-      var hamburgericon = document.getElementById("hamburger-icon");
-      var closeicon = document.getElementById("close-icon");
-      rightmenuitems.forEach((element) => {
-        element.onclick = toggleMenu;
-      });
+    if (!rightmenu || !hamburgericon || !closeicon) return;
 
-      // hamburger.onclick = toggleMenu;
-
-      function toggleMenu() {
-        rightmenu.classList.toggle("open");
-        if (rightmenu.classList.contains("open")) {
-          hamburgericon.style.display = "none";
-          closeicon.style.display = "block";
-        } else {
-          hamburgericon.style.display = "block";
-          closeicon.style.display = "none";
-        }
-      }
-
-      //hide navbar on scroll
-      var prevScrollpos = window.pageYOffset;
-      window.onscroll = function () {
-        var currentScrollPos = window.pageYOffset;
-        if (prevScrollpos > currentScrollPos) {
-          document.getElementById("header").style.top = "0";
-        } else {
-          document.getElementById("header").style.top = "-100px";
-        }
-        prevScrollpos = currentScrollPos;
-
-        // slide and show section
-        var reveals = document.querySelectorAll(".reveal");
-
-        for (let i = 0; i < reveals.length; i++) {
-          var windowheight = window.innerHeight;
-          var revealtop = reveals[i].getBoundingClientRect().top;
-          var revealpoint = 30;
-
-          if (revealtop < windowheight - revealpoint) {
-            reveals[i].classList.add("activescroll");
-          } else {
-            reveals[i].classList.remove("activescroll");
-          }
-        }
-      };
+    const toggleMenu = () => {
+      rightmenu.classList.toggle("open");
+      const isOpen = rightmenu.classList.contains("open");
+      hamburgericon.style.display = isOpen ? "none" : "block";
+      closeicon.style.display = isOpen ? "block" : "none";
     };
 
-    if (location.hash) {
-      const element = document.querySelector(location.hash);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
+    rightmenuitems.forEach((el) => el.addEventListener("click", toggleMenu));
 
+    return () => {
+      rightmenuitems.forEach((el) => el.removeEventListener("click", toggleMenu));
+    };
+  }, []);
+
+  // ---- Scroll behavior: hide header + reveal animations ----
+  React.useEffect(() => {
+    let prevScrollPos = window.pageYOffset;
+
+    const handleScroll = () => {
+      // Hide navbar on scroll
+      const header = document.getElementById("header");
+      if (header) {
+        const currentScrollPos = window.pageYOffset;
+        if (prevScrollPos > currentScrollPos) {
+          header.style.top = "0";
+        } else {
+          header.style.top = "-100px";
+        }
+        prevScrollPos = currentScrollPos;
+      }
+
+      // Reveal sections on scroll
+      const reveals = document.querySelectorAll(".reveal");
+      reveals.forEach((el) => {
+        const windowHeight = window.innerHeight;
+        const revealTop = el.getBoundingClientRect().top;
+        const revealPoint = 30;
+
+        if (revealTop < windowHeight - revealPoint) {
+          el.classList.add("activescroll");
+        } else {
+          el.classList.remove("activescroll");
+        }
+      });
+    };
+
+    // Run once on mount (important for items already in view)
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener("resize", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleScroll);
+    };
+  }, []);
+
+  // ---- Smooth scroll to hash (#section) ----
+  React.useEffect(() => {
+    if (!location.hash) return;
+
+    // Wait a tick so React can render the target element (important on navigation)
+    const t = setTimeout(() => {
+      const element = document.querySelector(location.hash);
+      if (element) element.scrollIntoView({ behavior: "smooth" });
+    }, 0);
+
+    return () => clearTimeout(t);
+  }, [location.hash]);
+
+  // ---- Optional: ping server (kept, but not called) ----
+  React.useEffect(() => {
     const pingServer = async () => {
       try {
-        const response = await fetch('https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com/api/health/ping');
+        const response = await fetch(
+          "https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com/api/health/ping"
+        );
         const data = await response.json();
-        console.log('Ping success:', data);
+        console.log("Ping success:", data);
       } catch (error) {
-        console.error('Ping error:', error);
+        console.error("Ping error:", error);
       }
     };
-  
-    // Call the async function
-    //pingServer();
 
-   
-  }, [location.hash]);
+    // pingServer(); // uncomment if you want to call it
+  }, []);
 
   
   return (
