@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import axiosRetry from "axios-retry";
+import { API_BASE_URL } from "../config/api";
 
 const ExperienceSection = () => {
   const [experiences, setExperiences] = useState([]);
@@ -19,10 +20,8 @@ const ExperienceSection = () => {
   });
 
   useEffect(() => {
-    axios({
-      url: "http://127.0.0.1:8000/api/experiences",
-      method: "GET",
-    }).then((res) => {
+    axios.get(`${API_BASE_URL}/api/experience`)
+    .then((res) => {
       //   console.log(res.data);
       var responselist = res.data;
 
