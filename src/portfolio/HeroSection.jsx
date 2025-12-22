@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import axiosRetry from "axios-retry";
 import Typed from "typed.js";
+import { API_BASE_URL } from "../config/api";
 
 const HeroSection = () => {
   const el = React.useRef(null);
@@ -21,10 +22,8 @@ const HeroSection = () => {
   });
 
   useEffect(() => {
-    axios({
-      url: "http://127.0.0.1:8000/api/contents",
-      method: "GET",
-    }).then((res) => {
+    axios.get(`${API_BASE_URL}/api/content`)
+    .then((res) => {
       //   console.log(res.data);
       var responselist = res.data;
 

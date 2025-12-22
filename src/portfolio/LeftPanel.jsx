@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import axiosRetry from "axios-retry";
+import { API_BASE_URL } from "../config/api";
 
 export const LeftPanel = () => {
   const [socialmedias, setSocialMedias] = useState([]);
@@ -19,10 +20,8 @@ export const LeftPanel = () => {
   });
 
   useEffect(() => {
-    axios({
-      url: "http://127.0.0.1:8000/api/socialmedia",
-      method: "GET",
-    }).then((res) => {
+    axios.get(`${API_BASE_URL}/api/socialmedia`)
+    .then((res) => {
       var responselist = res.data;
       let faqList = responselist.map((sociallink) => sociallink);
       setSocialMedias(faqList);

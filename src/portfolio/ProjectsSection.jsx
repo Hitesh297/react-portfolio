@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import axiosRetry from "axios-retry";
+import { API_BASE_URL } from "../config/api";
 
 const ProjectsSection = () => {
   const [projects, setProjects] = useState([]);
@@ -19,10 +20,8 @@ const ProjectsSection = () => {
   });
 
   useEffect(() => {
-    axios({
-      url: "http://127.0.0.1:8000/api/projects",
-      method: "GET",
-    }).then((res) => {
+    axios.get(`${API_BASE_URL}/api/project`)
+    .then((res) => {
       //   console.log(res.data);
       var responselist = res.data;
 
@@ -92,7 +91,6 @@ const ProjectsSection = () => {
           </li>
         ))}
 
-        {/* <?php endfor; ?> */}
       </ul>
     </section>
   );

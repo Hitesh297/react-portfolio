@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import axiosRetry from "axios-retry";
+import { API_BASE_URL } from "../config/api";
 
 const AboutMeSection = () => {
   const [content, setContent] = useState([]);
@@ -20,10 +21,8 @@ const AboutMeSection = () => {
   });
 
   useEffect(() => {
-    axios({
-      url: "http://127.0.0.1:8000/api/contents",
-      method: "GET",
-    }).then((res) => {
+    axios.get(`${API_BASE_URL}/api/content`)
+    .then((res) => {
       //   console.log(res.data);
       var responselist = res.data;
 
@@ -34,10 +33,8 @@ const AboutMeSection = () => {
       setContent(contentList[0].content);
     });
 
-    axios({
-      url: "http://127.0.0.1:8000/api/qualifications",
-      method: "GET",
-    }).then((res) => {
+    axios.get(`${API_BASE_URL}/api/qualification`)
+    .then((res) => {
       //   console.log(res.data);
       var responselist = res.data;
 

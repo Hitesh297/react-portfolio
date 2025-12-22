@@ -20,7 +20,7 @@ const SkillsSection = () => {
   });
 
   useEffect(() => {
-    axios.get(`${API_BASE_URL}/api/skills`)
+    axios.get(`${API_BASE_URL}/api/skill`)
       .then((res) => {
       //   console.log(res.data);
       var responselist = res.data;
@@ -41,7 +41,7 @@ const SkillsSection = () => {
               key={skill.id}
               dangerouslySetInnerHTML={{
                 __html:
-                  skill.fontAwesomeHTML +
+                  skill.fontawesomeHtml +
                   "<h3>" +
                   skill.type +
                   "</h3>" +
