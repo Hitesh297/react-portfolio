@@ -8,6 +8,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import './AdminAddBlog.css';
 import { useNavigate } from 'react-router-dom';
+import { BLOG_API_BASE_URL } from "../config/api";
 
 // Function to convert TipTap JSON to markdown
 const toMarkdown = (json) => {
@@ -118,7 +119,7 @@ const AdminAddBlog = () => {
         setFormLoading(true);
         try {
             const response = await axios.post(
-                `https://localhost:7028/api/blogs`,
+                `${BLOG_API_BASE_URL}/api/blogs`,
                 formData,
                 {
                     headers: {

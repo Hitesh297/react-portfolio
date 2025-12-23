@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 import axios from "axios";
+import { BLOG_API_BASE_URL } from "../config/api";
 import "./AdminDeleteBlog.css";
 
 // Function to convert markdown to plain text snippet
@@ -42,7 +43,7 @@ const AdminDeleteBlog = () => {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get(
-          `https://localhost:7028/api/blogs`
+          `${BLOG_API_BASE_URL}/api/blogs`
         );
         setBlogs(response.data);
         setLoading(false);
@@ -58,7 +59,7 @@ const AdminDeleteBlog = () => {
     if (window.confirm("Are you sure you want to delete this blog?")) {
       try {
         await axios.delete(
-          `https://localhost:7028/api/blogs/${id}`,
+          `${BLOG_API_BASE_URL}/api/blogs/${id}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

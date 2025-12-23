@@ -92,7 +92,7 @@ const PortfolioApp = () => {
     const pingServer = async () => {
       try {
         const response = await fetch(
-          "https://localhost:7028/api/health/ping"
+          `${API_BASE_URL}/api/health/ping`
         );
         const data = await response.json();
         console.log("Ping success:", data);

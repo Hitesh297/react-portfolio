@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { BLOG_API_BASE_URL } from "../config/api";
 import './Login.css';
 
 const Login = () => {
@@ -14,7 +15,7 @@ const Login = () => {
         const token = localStorage.getItem('token');
         if (token) {
             axios
-                .get('https://localhost:7028/api/auth/verify', {
+                .get(`${BLOG_API_BASE_URL}/api/auth/verify`, {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -37,7 +38,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`https://localhost:7028/api/auth/login`, {
+            const response = await axios.post(`${BLOG_API_BASE_URL}/api/auth/login`, {
                 email,
                 password
             });
