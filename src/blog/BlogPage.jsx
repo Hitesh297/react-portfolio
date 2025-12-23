@@ -33,7 +33,7 @@ const BlogPage = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const response = await axios.get(`https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com/api/blogs`);
+                const response = await axios.get(`https://localhost:7028/api/blogs`);
                 setBlogs(response.data);
                 setLoading(false);
             } catch (err) {

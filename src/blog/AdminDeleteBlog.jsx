@@ -42,7 +42,7 @@ const AdminDeleteBlog = () => {
     const fetchBlogs = async () => {
       try {
         const response = await axios.get(
-          `https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com/api/blogs`
+          `https://localhost:7028/api/blogs`
         );
         setBlogs(response.data);
         setLoading(false);
@@ -58,7 +58,7 @@ const AdminDeleteBlog = () => {
     if (window.confirm("Are you sure you want to delete this blog?")) {
       try {
         await axios.delete(
-          `https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com/api/blogs/${id}`,
+          `https://localhost:7028/api/blogs/${id}`,
           {
             headers: { Authorization: `Bearer ${token}` },
           }

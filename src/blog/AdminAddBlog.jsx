@@ -118,7 +118,7 @@ const AdminAddBlog = () => {
         setFormLoading(true);
         try {
             const response = await axios.post(
-                `https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com/api/blogs`,
+                `https://localhost:7028/api/blogs`,
                 formData,
                 {
                     headers: {
