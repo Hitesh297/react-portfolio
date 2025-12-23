@@ -4,6 +4,7 @@ import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { BLOG_API_BASE_URL } from "../config/api";
 import './BlogDetailPage.css';
 
 const BlogDetailPage = () => {
@@ -15,7 +16,7 @@ const BlogDetailPage = () => {
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const response = await axios.get(`https://localhost:7028/api/blogs/${id}`);
+                const response = await axios.get(`${BLOG_API_BASE_URL}/api/blogs/${id}`);
                 setBlog(response.data);
                 setLoading(false);
             } catch (err) {

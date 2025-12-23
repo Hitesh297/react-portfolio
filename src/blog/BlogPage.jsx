@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { BLOG_API_BASE_URL } from "../config/api";
 import './BlogPage.css';
 
 // Function to convert markdown to plain text snippet
@@ -33,7 +34,7 @@ const BlogPage = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const response = await axios.get(`https://localhost:7028/api/blogs`);
+                const response = await axios.get(`${BLOG_API_BASE_URL}/api/blogs`);
                 setBlogs(response.data);
                 setLoading(false);
             } catch (err) {

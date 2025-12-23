@@ -27,7 +27,7 @@ Welcome to the source code of my personal portfolio website, built using **React
 - Built using **.NET Core** with full CRUD capabilities and **JWT-based authentication**
 - Used for serving dynamic blog content to the portfolio frontend
 - **GitHub Repo:** <a href="https://github.com/Hitesh297/blog-api.git">blog-api</a>  
-- **API Endpoint:** <a href="https://localhost:7028/api/health/ping">https://localhost:7028/api/health/ping</a>
+- **API Endpoint:** <a href="${API_BASE_URL}/api/health/ping">${API_BASE_URL}/api/health/ping</a>
 
 ---
 
@@ -58,7 +58,7 @@ Welcome to the source code of my personal portfolio website, built using **React
 
 - **Portfolio:** <a href="https://www.hiteshpatel.dev">https://www.hiteshpatel.dev</a>
 - **Admin Panel:** <a href="https://hiteshpateladmin.herokuapp.com">https://hiteshpateladmin.herokuapp.com</a>
-- **Blog API:** <a href="https://localhost:7028/api/health/ping">https://localhost:7028/api/health/ping</a>
+- **Blog API:** <a href="${API_BASE_URL}/api/health/ping">${API_BASE_URL}/api/health/ping</a>
 
 ---
 
