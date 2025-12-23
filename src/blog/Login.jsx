@@ -14,7 +14,7 @@ const Login = () => {
         const token = localStorage.getItem('token');
         if (token) {
             axios
-                .get('https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com/api/auth/verify', {
+                .get('https://localhost:7028/api/auth/verify', {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -37,7 +37,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(`https://hteshpatel-dev-blog-api-4baa7ed6c2cf.herokuapp.com/api/auth/login`, {
+            const response = await axios.post(`https://localhost:7028/api/auth/login`, {
                 email,
                 password
             });
