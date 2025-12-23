@@ -3,6 +3,7 @@ import Main from "../components/Main";
 import RightPanel from "./RightPanel";
 import React from "react";
 import { useLocation } from "react-router-dom";
+import { BLOG_API_BASE_URL } from "../config/api";
 import "./PortfolioApp.css";
 
 const PortfolioApp = () => {
@@ -87,12 +88,12 @@ const PortfolioApp = () => {
     return () => clearTimeout(t);
   }, [location.hash]);
 
-  // ---- Optional: ping server (kept, but not called) ----
+  // ---- ping server to wake up from ideal ----
   React.useEffect(() => {
     const pingServer = async () => {
       try {
         const response = await fetch(
-          `${API_BASE_URL}/api/health/ping`
+          `${BLOG_API_BASE_URL}/api/health/ping`
         );
         const data = await response.json();
         console.log("Ping success:", data);
@@ -101,7 +102,7 @@ const PortfolioApp = () => {
       }
     };
 
-    // pingServer(); // uncomment if you want to call it
+    pingServer();
   }, []);
 
   
