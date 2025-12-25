@@ -10,7 +10,10 @@ import AdminDeleteBlog from "./blog/AdminDeleteBlog";
 import Login from "./blog/Login";
 import BlogDetailPage from "./blog/BlogDetailPage";
 import { LayoutWithNavbar } from "./portfolio/Header";
-
+import AdminDashboard from "./admin/pages/AdminDashboard";
+import SkillsListPage from "./admin/skills/pages/SkillsListPage";
+import SkillCreatePage from "./admin/skills/pages/SkillCreatePage";
+import SkillEditPage from "./admin/skills/pages/SkillEditPage";
 
 function App() {
 
@@ -27,6 +30,13 @@ function App() {
           <Route path="/delete-blog" element={<AdminDeleteBlog />} />
           <Route path="/all-images" element={<AllImages />} />
           <Route path="/login" element={<Login />} />
+
+          <Route path="/admin" element={<AdminDashboard />}>
+
+          <Route path="/admin/skills" element={<SkillsListPage />} />
+          <Route path="/admin/skills/new" element={<SkillCreatePage />} />
+          <Route path="/admin/skills/:id/edit" element={<SkillEditPage />} />
+      </Route>
         </Route>
         {/* Route without Navbar */}
         <Route path="/wedding" element={<WeddingApp />} />
