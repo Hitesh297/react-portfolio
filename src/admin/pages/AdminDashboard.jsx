@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import "./dashboard.css";
 
@@ -8,7 +7,7 @@ const dashboardItems = [
   { to: "/console/textcontents/list", label: "Manage Text Content" },
   { to: "/console/experiences/list", label: "Manage Experience" },
   { to: "/console/qualifications/list", label: "Manage Qualifications" },
-  { to: "/console/skills/list", label: "Manage Skills" },
+  { to: "/admin/skills", label: "Manage Skills" },
   { to: "/console/socialmedias/list", label: "Manage Social Media Links" },
   { to: "/console/projects/list", label: "Manage Projects" },
   { to: "/console/users/list", label: "Manage Users" },
@@ -31,4 +30,6 @@ function AdminDashboard() {
   );
 }
 
-export default AdminDashboard
+export default AdminDashboard;
+
+

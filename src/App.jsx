@@ -12,8 +12,8 @@ import BlogDetailPage from "./blog/BlogDetailPage";
 import { LayoutWithNavbar } from "./portfolio/Header";
 import AdminDashboard from "./admin/pages/AdminDashboard";
 import SkillsListPage from "./admin/skills/pages/SkillsListPage";
-import SkillCreatePage from "./admin/skills/pages/SkillCreatePage";
-import SkillEditPage from "./admin/skills/pages/SkillEditPage";
+import SkillUpsertPage from "./admin/skills/pages/SkillUpsertPage";
+import AdminShell from "./admin/pages/AdminShell";
 
 function App() {
 
@@ -31,12 +31,13 @@ function App() {
           <Route path="/all-images" element={<AllImages />} />
           <Route path="/login" element={<Login />} />
 
-          <Route path="/admin" element={<AdminDashboard />}>
-
-          <Route path="/admin/skills" element={<SkillsListPage />} />
-          <Route path="/admin/skills/new" element={<SkillCreatePage />} />
-          <Route path="/admin/skills/:id/edit" element={<SkillEditPage />} />
-      </Route>
+          {/* ADMIN group */}
+          <Route path="admin" element={<AdminShell />}>
+            <Route index element={<AdminDashboard />} />      {/* /admin */}
+            <Route path="skills" element={<SkillsListPage />} />  {/* /admin/skills */}
+            <Route path="skills/new" element={<SkillUpsertPage />} />
+            <Route path="skills/:id/edit" element={<SkillUpsertPage />} />
+          </Route>
         </Route>
         {/* Route without Navbar */}
         <Route path="/wedding" element={<WeddingApp />} />

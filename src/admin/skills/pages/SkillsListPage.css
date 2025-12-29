@@ -1,0 +1,73 @@
+/* ===== Variables (needed for colors) ===== */
+:root {
+  --green: #64ffda;
+  --background: #0a192f;
+}
+
+/* ===== Page wrapper ===== */
+section {
+  margin: auto;
+  max-width: 90%;
+}
+
+/* ===== Links ===== */
+a {
+  text-decoration: none;
+  color: var(--green);
+}
+
+/* ===== Table ===== */
+table {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+td,
+th {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+th {
+  white-space: nowrap;
+}
+
+/* ===== FontAwesome icon column ===== */
+.fa-icon {
+  font-size: 32px;
+}
+
+/* ===== Error message ===== */
+.error {
+  color: #f00;
+  text-align: center;
+}
+
+/* ===== Flash message (session message equivalent) ===== */
+.alert-strip {
+  background: aliceblue;
+  padding: 5px;
+  margin-bottom: 12px;
+}
+
+.alert-msg {
+  text-align: center;
+  color: black;
+}
+
+/* ===== Delete button styled like link ===== */
+.link-button {
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--green);
+  text-decoration: underline;
+  font: inherit;
+}
+
+.link-button:hover {
+  opacity: 0.85;
+}

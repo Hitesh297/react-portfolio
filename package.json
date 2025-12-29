@@ -10,13 +10,13 @@
     "preview": "vite preview"
   },
   "engines": {
-  "node": ">=20"
+    "node": ">=20"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
     "@tiptap/extension-code-block": "^2.11.7",
-    "@tiptap/react": "^2.11.7",
-    "@tiptap/starter-kit": "^2.11.7",
+    "@tiptap/react": "^2.27.1",
+    "@tiptap/starter-kit": "^2.27.1",
     "aos": "^2.3.4",
     "axios": "^1.7.9",
     "axios-retry": "^4.5.0",
