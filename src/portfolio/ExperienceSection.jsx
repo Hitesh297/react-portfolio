@@ -32,6 +32,9 @@ const ExperienceSection = () => {
   }, [setExperiences]);
 
   function formatedDate(date) {
+    if (date === "0001-01-01" || date.startsWith("0001-01-01")) {
+    return "Present";
+  }
     var dateobject = new Date(date);
     const month = dateobject.toLocaleString("default", { month: "short" });
     const year = dateobject.toLocaleString("default", { year: "numeric" });
