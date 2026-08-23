@@ -7,10 +7,10 @@ const ContactSection = () => {
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_s0azyqm",
-        "template_r0hwgdb",
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         form.current,
-        "jnSDzhOlaYWF5rlDA"
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
       .then(
         () => {
